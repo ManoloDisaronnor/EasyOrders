@@ -18,8 +18,6 @@ EasyOrders (Carpeta Raiz)
 │    └── LacunherBackend.bat  
 │  
 └── README.md # Este archivo    
-
-    
   
 Es ***importante tener en cuenta*** que hay que dejar los scripts que ejecutemos de los lanzadores en ejecución para poder acceder a la aplicacion ***NO SE PUEDEN CERRAR***. 
 
