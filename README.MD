@@ -1,22 +1,25 @@
 # EASYORDERS
-Proyecto desarrollado por Manuel usando React y Node.js
+Proyecto desarrollado por Manuel usando React y Node.js  
 
 ## INSTALACIÓN Y EJECUCIÓN
-Para la instalación he creado una serie de scripts ubicadas en las carpetas: 
+Para la instalación he creado una serie de scripts ubicadas en las carpetas:   
 
-/ (Raíz del Proyecto) 
-├── INSTALLERS/ # Scripts para instalar las dependencias del proyecto 
-│    ├── InstalarDependenciasFrontend.bat
-│    │ 
-│    └── InstalarDependenciasBackend.bat
-│ 
-├── LAUNCHERS/ # Scripts para ejecutar ambas partes del proyecto 
-│    ├── LauncherFrontend.bat
-│    │ 
-│    └── LacunherBackend.bat
-│
-└── README.md # Este archivo
 
+EasyOrders (Carpeta Raiz)  
+│  
+├── INSTALLERS/ # Scripts para instalar las dependencias del proyecto   
+│    ├── InstalarDependenciasFrontend.bat  
+│    │   
+│    └── InstalarDependenciasBackend.bat  
+│   
+├── LAUNCHERS/ # Scripts para ejecutar ambas partes del proyecto   
+│    ├── LauncherFrontend.bat  
+│    │   
+│    └── LacunherBackend.bat  
+│  
+└── README.md # Este archivo  
+    
+  
 Es ***importante tener en cuenta*** que hay que dejar los scripts que ejecutemos de los lanzadores en ejecución para poder acceder a la aplicacion ***NO SE PUEDEN CERRAR***. 
 
 ### EJECUCIÓN POR CODIGO DE LOS SERVIDORES
