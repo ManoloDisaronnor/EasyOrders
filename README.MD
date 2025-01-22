@@ -6,19 +6,17 @@ Para la instalación he creado una serie de scripts ubicadas en las carpetas:
 
 
 <!-- TREEVIEW START -->
-EasyOrders (Carpeta Raiz)  
+.EasyOrders (Carpeta Raíz)  
 │  
-├── INSTALLERS/ # Scripts para instalar las dependencias del proyecto   
-│    ├── InstalarDependenciasFrontend.bat  
-│    │   
-│    └── InstalarDependenciasBackend.bat  
-│   
-├── LAUNCHERS/ # Scripts para ejecutar ambas partes del proyecto   
-│    ├── LauncherFrontend.bat  
-│    │   
-│    └── LacunherBackend.bat  
+├── INSTALLERS/  # Scripts para instalar las dependencias del proyecto   
+│   ├── InstalarDependenciasFrontend.bat  
+│   └── InstalarDependenciasBackend.bat  
 │  
-└── README.md # Este archivo  
+├── LAUNCHERS/  # Scripts para ejecutar ambas partes del proyecto   
+│   ├── LauncherFrontend.bat  
+│   └── LauncherBackend.bat  
+│  
+└── README.md  # Este archivo  
 <!-- TREEVIEW END -->
   
   
