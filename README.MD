@@ -4,7 +4,7 @@ Proyecto desarrollado por Manuel usando React y Node.js
 ## INSTALACIÓN Y EJECUCIÓN
 Para la instalación he creado una serie de scripts ubicadas en las carpetas:   
 
-
+```
 <!-- TREEVIEW START -->
 .EasyOrders (Carpeta Raíz)  
 │  
@@ -18,7 +18,7 @@ Para la instalación he creado una serie de scripts ubicadas en las carpetas:
 │  
 └── README.md  # Este archivo  
 <!-- TREEVIEW END -->
-  
+```
   
 Es ***importante tener en cuenta*** que hay que dejar los scripts que ejecutemos de los lanzadores en ejecución para poder acceder a la aplicacion ***NO SE PUEDEN CERRAR***. 
 
