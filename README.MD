@@ -4,8 +4,9 @@ Proyecto desarrollado por Manuel usando React y Node.js
 ## INSTALACIÓN Y EJECUCIÓN
 Para la instalación he creado una serie de scripts ubicadas en las carpetas:   
 
-```
+
 <!-- TREEVIEW START -->
+```
 .EasyOrders (Carpeta Raíz)  
 │  
 ├── INSTALLERS/  # Scripts para instalar las dependencias del proyecto   
@@ -17,8 +18,9 @@ Para la instalación he creado una serie de scripts ubicadas en las carpetas:
 │   └── LauncherBackend.bat  
 │  
 └── README.md  # Este archivo  
-<!-- TREEVIEW END -->
 ```
+<!-- TREEVIEW END -->
+
   
 Es ***importante tener en cuenta*** que hay que dejar los scripts que ejecutemos de los lanzadores en ejecución para poder acceder a la aplicacion ***NO SE PUEDEN CERRAR***. 
 
