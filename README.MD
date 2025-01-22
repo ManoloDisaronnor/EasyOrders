@@ -7,7 +7,7 @@ Para la instalación he creado una serie de scripts ubicadas en las carpetas:
 
 <!-- TREEVIEW START -->
 ```
-.EasyOrders (Carpeta Raíz)  
+./EasyOrders (Carpeta Raíz)  
 │  
 ├── INSTALLERS/  # Scripts para instalar las dependencias del proyecto   
 │   ├── InstalarDependenciasFrontend.bat  
