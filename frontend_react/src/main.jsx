@@ -13,12 +13,18 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Home from './Pages/Home'
 import Menu from './Componentes/Menu'
-
+import RutaNotFound from './Componentes/RutaNotFound'
 
 let router = createBrowserRouter([
   {
     path: "/",
     element: <Menu />,
+    errorElement: (
+      <>
+        <Menu />
+        <RutaNotFound />
+      </>
+    ),
     children: [
       {
         path: "/",
