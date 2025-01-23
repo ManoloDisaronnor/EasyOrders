@@ -16,7 +16,6 @@ import '../assets/style/estiloFuenteNavBar.css'
 import AnchorTemporaryDrawer from './SideBar';
 
 function MenuApp() {
-    const [abrirMenu, setAbrirMenu] = useState(false);
     const [temaOscuro, setTemaOscuro] = useState(false);
     const [colorFondo, setColorFondo] = useState('#FFFFFF');
     const [colorTexto, setColorTexto] = useState('#000000');
@@ -104,83 +103,6 @@ function MenuApp() {
                 </AppBar>
                 <AnchorTemporaryDrawer state={state} toggleDrawer={toggleDrawer} colorFondo={colorFondo} colorTexto={colorTexto} colorIcono={colorIcono} />
             </Box>
-            {/* <MDBNavbar expand='md' light bgColor={tema} style={{ borderBottom: '4px solid #24c55e' }}>
-                <MDBContainer fluid>
-                    <MDBNavbarBrand href='/'>
-                        <img
-                            src={logo}
-                            height='70'
-                            alt='logo'
-                            loading='lazy'
-                            className="me-4"
-                        />
-                        <Typography variant="h3" className="easyOrders" sx={{ color: colorTexto }}>EasyOrders</Typography>
-                    </MDBNavbarBrand>
-
-                    <MDBNavbarToggler
-                        aria-controls='navbarSupportedContent'
-                        aria-expanded='false'
-                        aria-label='Toggle navigation'
-                        onClick={() => setOpenBasic(!openBasic)}
-                    >
-                        <MenuIcon sx={{ color: colorIcono }} />
-                    </MDBNavbarToggler>
-
-                    <MDBCollapse navbar open={openBasic}>
-                        <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
-                            <MDBNavbarItem>
-                                <MDBDropdown>
-                                    <MDBDropdownToggle tag='a' className='nav-link text-black fs-5 mx-lg-3' role='button'>
-                                        Clientes
-                                    </MDBDropdownToggle>
-                                    <MDBDropdownMenu>
-                                        <MDBDropdownItem link className='fs-5'><Link to="/altatapa" className='text-black'>Alta tapa</Link></MDBDropdownItem>
-                                        <MDBDropdownItem link className='fs-5'><Link to="/listadoplatos" className='text-black'>Listado tapas</Link></MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
-                            </MDBNavbarItem>
-                            <MDBNavbarItem>
-                                <MDBDropdown>
-                                    <MDBDropdownToggle tag='a' className='nav-link text-black fs-5' role='button'>
-                                        Pedidos
-                                    </MDBDropdownToggle>
-                                    <MDBDropdownMenu>
-                                        <MDBDropdownItem link className='fs-5'><Link to="/altapedido" className='text-black'>Alta pedidos</Link></MDBDropdownItem>
-                                        <MDBDropdownItem link className='fs-5'><Link to="/listadopedidos" className='text-black'>Listado pedidos</Link></MDBDropdownItem>
-                                    </MDBDropdownMenu>
-                                </MDBDropdown>
-                            </MDBNavbarItem>
-                        </MDBNavbarNav>
-                    </MDBCollapse>
-
-                    <Box sx={{ display: 'flex', alignItems: 'center'}}>
-                        <IconButton
-                            onClick={() => setTemaOscuro(!temaOscuro)}
-                            sx={{
-                                transition: 'transform 0.5s ease-in-out',
-                                marginLeft: 'auto' // Asegura que se mueva completamente a la derecha
-                            }}
-                        >
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    transition: 'transform 0.3s ease-in-out',
-                                    transform: temaOscuro ? 'rotate(360deg)' : 'rotate(0deg)',
-                                }}
-                            >
-                                {temaOscuro ? (
-                                    <DarkModeIcon sx={{ color: '#FFFFFF', fontSize: 28 }} />
-                                ) : (
-                                    <LightModeIcon sx={{ color: '#24c55e', fontSize: 28 }} />
-                                )}
-                            </Box>
-                        </IconButton>
-                    </Box>
-
-                </MDBContainer>
-            </MDBNavbar> */}
             <Outlet />
         </>
     );
