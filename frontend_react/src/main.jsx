@@ -12,16 +12,16 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Home from './Pages/Home'
-import Menu from './Componentes/Menu'
+import MenuApp from './Componentes/Menu'
 import RutaNotFound from './Componentes/RutaNotFound'
 
 let router = createBrowserRouter([
   {
     path: "/",
-    element: <Menu />,
+    element: <MenuApp />,
     errorElement: (
       <>
-        <Menu />
+        <MenuApp />
         <RutaNotFound />
       </>
     ),
@@ -35,7 +35,5 @@ let router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
 )
