@@ -1,8 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState } from "react";
-import {
-    MDBNavbarBrand,
-} from 'mdb-react-ui-kit';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router';
 import { Box, IconButton, Typography } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
@@ -14,12 +10,11 @@ import logo from '../assets/img/locoEasyOrders.png';
 
 import '../assets/style/estiloFuenteNavBar.css'
 import AnchorTemporaryDrawer from './SideBar';
+import { TemaProvider, useTema } from './TemaProvider';
+import { MDBNavbarBrand } from 'mdb-react-ui-kit';
 
 function MenuApp() {
-    const [temaOscuro, setTemaOscuro] = useState(false);
-    const [colorFondo, setColorFondo] = useState('#FFFFFF');
-    const [colorTexto, setColorTexto] = useState('#000000');
-    const [colorIcono, setColorIcono] = useState('#24c55e');
+    const { temaOscuro, colorFondo, colorTexto, colorIcono, toggleTema } = useTema();
     const [state, setState] = useState({
         top: false,
         left: false,
@@ -35,77 +30,69 @@ function MenuApp() {
         setState({ ...state, [anchor]: open });
     };
 
-    useEffect(() => {
-        if (temaOscuro) {
-            setColorFondo('#332d2d');
-            setColorTexto('#FFFFFF');
-            setColorIcono('#FFFFFF');
-        } else {
-            setColorFondo('#FFFFFF');
-            setColorTexto('#000000');
-            setColorIcono('#24c55e');
-        }
-    }, [temaOscuro]);
-
     return (
-        <>
-            <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static" sx={{ backgroundColor: colorFondo, padding: 2, borderBottom: '4px solid #24c55e' }}>
-                    <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <div>
-                                <IconButton
-                                    size="large"
-                                    edge="start"
-                                    color="inherit"
-                                    aria-label="menu"
-                                    sx={{ mr: 2 }}
-                                    onClick={toggleDrawer("left", true)}
-                                >
-                                    <MenuIcon sx={{ color: colorIcono }} />
-                                </IconButton>
-                            </div>
-                            <MDBNavbarBrand href='/' className="ms-3">
-                                <img
-                                    src={logo}
-                                    height='70'
-                                    alt='logo'
-                                    loading='lazy'
-                                    className="me-4"
-                                />
-                                <Typography variant="h3" className="easyOrders" sx={{ color: colorTexto }}>
-                                    EasyOrders
-                                </Typography>
-                            </MDBNavbarBrand>
-                        </Box>
-                        <IconButton
-                            onClick={() => setTemaOscuro(!temaOscuro)}
-                            size="large"
-                            sx={{ transition: 'transform 0.5s ease-in-out' }}
-                        >
-                            <Box
-                                sx={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    transition: 'transform 0.3s ease-in-out',
-                                    transform: temaOscuro ? 'rotate(360deg)' : 'rotate(0deg)',
-                                }}
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar position="static" sx={{ backgroundColor: colorFondo, padding: 2, borderBottom: '4px solid #24c55e' }}>
+                <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                        <div>
+                            <IconButton
+                                size="large"
+                                edge="start"
+                                color="inherit"
+                                aria-label="menu"
+                                sx={{ mr: 2 }}
+                                onClick={toggleDrawer("left", true)}
                             >
-                                {temaOscuro ? (
-                                    <DarkModeIcon sx={{ color: '#FFFFFF', fontSize: 28 }} />
-                                ) : (
-                                    <LightModeIcon sx={{ color: '#24c55e', fontSize: 28 }} />
-                                )}
-                            </Box>
-                        </IconButton>
-                    </Toolbar>
-                </AppBar>
-                <AnchorTemporaryDrawer state={state} toggleDrawer={toggleDrawer} colorFondo={colorFondo} colorTexto={colorTexto} colorIcono={colorIcono} />
-            </Box>
+                                <MenuIcon sx={{ color: colorIcono }} />
+                            </IconButton>
+                        </div>
+                        <MDBNavbarBrand href='/' className="ms-3">
+                            <img
+                                src={logo}
+                                height='70'
+                                alt='logo'
+                                loading='lazy'
+                                className="me-4"
+                            />
+                            <Typography variant="h3" className="easyOrders" sx={{ color: colorTexto }}>
+                                EasyOrders
+                            </Typography>
+                        </MDBNavbarBrand>
+                    </Box>
+                    <IconButton
+                        onClick={toggleTema}
+                        size="large"
+                        sx={{ transition: 'transform 0.5s ease-in-out' }}
+                    >
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                transition: 'transform 0.3s ease-in-out',
+                                transform: temaOscuro ? 'rotate(360deg)' : 'rotate(0deg)',
+                            }}
+                        >
+                            {temaOscuro ? (
+                                <DarkModeIcon sx={{ color: '#FFFFFF', fontSize: 28 }} />
+                            ) : (
+                                <LightModeIcon sx={{ color: '#24c55e', fontSize: 28 }} />
+                            )}
+                        </Box>
+                    </IconButton>
+                </Toolbar>
+            </AppBar>
+            <AnchorTemporaryDrawer state={state} toggleDrawer={toggleDrawer} colorFondo={colorFondo} colorTexto={colorTexto} colorIcono={colorIcono} />
             <Outlet />
-        </>
+        </Box>
     );
 }
 
-export default MenuApp;
+export default function App() {
+    return (
+        <TemaProvider> {/* Proveer el contexto a la aplicación */}
+            <MenuApp />
+        </TemaProvider>
+    );
+}
