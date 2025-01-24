@@ -13,7 +13,8 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 
 import Home from './Pages/Home'
 import MenuApp from './Componentes/Menu'
-import RutaNotFound from './Componentes/RutaNotFound'
+import RutaNotFound from './Pages/RutaNotFound'
+import { TemaProvider } from './Componentes/TemaProvider'
 
 let router = createBrowserRouter([
   {
@@ -21,8 +22,10 @@ let router = createBrowserRouter([
     element: <MenuApp />,
     errorElement: (
       <>
+
         <MenuApp />
         <RutaNotFound />
+
       </>
     ),
     children: [
@@ -35,5 +38,7 @@ let router = createBrowserRouter([
 ]);
 
 createRoot(document.getElementById("root")).render(
+  <TemaProvider>
     <RouterProvider router={router} />
+  </TemaProvider>
 )

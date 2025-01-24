@@ -11,6 +11,8 @@ import PersonIcon from '@mui/icons-material/Person';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import { useTema } from '../Componentes/TemaProvider';
 
+// import { apiUrl } from '../config';
+
 function Home() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
     

@@ -9,6 +9,7 @@ lerna-debug.log*
 
 dist
 dist-ssr
+.cache
 *.local
 
 # Editor directories and files
@@ -24,3 +25,10 @@ dist-ssr
 
 # Node_modules (carpetas que ocupan mucho espacio y se pueden crear mediante un comando)
 *node_modules*
+
+# para las dotenv
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
