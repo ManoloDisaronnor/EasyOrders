@@ -10,7 +10,7 @@ import logo from '../assets/img/locoEasyOrders.png';
 
 import '../assets/style/estiloFuenteNavBar.css'
 import AnchorTemporaryDrawer from './SideBar';
-import { TemaProvider, useTema } from './TemaProvider';
+import { useTema } from './TemaProvider';
 import { MDBNavbarBrand } from 'mdb-react-ui-kit';
 
 function MenuApp() {
@@ -91,8 +91,6 @@ function MenuApp() {
 
 export default function App() {
     return (
-        <TemaProvider> {/* Proveer el contexto a la aplicación */}
-            <MenuApp />
-        </TemaProvider>
+        <MenuApp />
     );
 }

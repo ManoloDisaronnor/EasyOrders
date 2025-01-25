@@ -5,26 +5,28 @@ const TemaContext = createContext();
 
 // Proveer el contexto en un componente de alto nivel
 export const TemaProvider = ({ children }) => {
-    const [temaOscuro, setTemaOscuro] = useState(false);
-    const [colorFondo, setColorFondo] = useState('#FFFFFF');
-    const [colorTexto, setColorTexto] = useState('#000000');
-    const [colorIcono, setColorIcono] = useState('#24c55e');
+    // Cargar la preferencia de tema desde localStorage o usar claro por defecto
+    const [temaOscuro, setTemaOscuro] = useState(() => {
+        return localStorage.getItem('temaOscuro') === 'true'; // Convertir a booleano
+    });
+
+    const [colorFondo, setColorFondo] = useState(temaOscuro ? '#332d2d' : '#FFFFFF');
+    const [colorTexto, setColorTexto] = useState(temaOscuro ? '#FFFFFF' : '#000000');
+    const [colorIcono, setColorIcono] = useState(temaOscuro ? '#FFFFFF' : '#24c55e');
 
     const toggleTema = () => {
-        setTemaOscuro(!temaOscuro);
+        setTemaOscuro(prevTema => {
+            const nuevoTema = !prevTema;
+            localStorage.setItem('temaOscuro', nuevoTema); // Guardar en localStorage
+            return nuevoTema;
+        });
     };
 
-    // Cambiar los colores según el tema
+    // Efecto para actualizar los colores cada vez que cambia el tema
     useEffect(() => {
-        if (temaOscuro) {
-            setColorFondo('#332d2d');
-            setColorTexto('#FFFFFF');
-            setColorIcono('#FFFFFF');
-        } else {
-            setColorFondo('#FFFFFF');
-            setColorTexto('#000000');
-            setColorIcono('#24c55e');
-        }
+        setColorFondo(temaOscuro ? '#332d2d' : '#FFFFFF');
+        setColorTexto(temaOscuro ? '#FFFFFF' : '#000000');
+        setColorIcono(temaOscuro ? '#FFFFFF' : '#24c55e');
     }, [temaOscuro]);
 
     return (

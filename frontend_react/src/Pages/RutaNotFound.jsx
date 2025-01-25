@@ -12,8 +12,8 @@ function RutaNotFound() {
     const navigate = useNavigate();
     return (
         <>
-            <Box sx={{ height: "100vh", backgroundColor: colorFondo }}>
-                <Grid2 container direction="row" alignItems="center" justifyContent="center" sx={{ marginTop: 5 }}>
+            <Box sx={{ backgroundColor: colorFondo }}>
+                <Grid2 container direction="row" alignItems="center" justifyContent="center">
                     <Grid2 xs={1} item>
                         <Box
                             component="img"
@@ -61,7 +61,6 @@ function RutaNotFound() {
                         objectFit: 'cover',
                         display: 'block',
                         margin: '0 auto',
-                        marginBottom: 5
                     }}
                 />
             </Box>

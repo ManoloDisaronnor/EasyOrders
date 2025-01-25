@@ -22,10 +22,8 @@ let router = createBrowserRouter([
     element: <MenuApp />,
     errorElement: (
       <>
-
         <MenuApp />
         <RutaNotFound />
-
       </>
     ),
     children: [
