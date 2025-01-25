@@ -7,7 +7,7 @@ import { useNavigate } from "react-router";
 import { useTema } from '../Componentes/TemaProvider';
 
 function RutaNotFound() {
-    const { colorFondo, colorTexto, colorIcono } = useTema();
+    const { colorFondo, colorTexto } = useTema();
 
     const navigate = useNavigate();
     return (
@@ -35,7 +35,7 @@ function RutaNotFound() {
                         <Typography variant="h6" color="textSecondary" sx={ { color: colorTexto } }>
                             Vaya, esa ruta es casi tan confusa como esta imagen
                         </Typography>
-                        <Typography variant="h6" color="textSecondary">
+                        <Typography variant="h6" color="textSecondary" sx={ { color: colorTexto } }>
                             Por favor, pulsa el siguiente boton para volver
                         </Typography>
                     </Grid2>
