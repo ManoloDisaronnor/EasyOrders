@@ -12,7 +12,7 @@ function RutaNotFound() {
     const navigate = useNavigate();
     return (
         <>
-            <Box sx={{ backgroundColor: colorFondo }}>
+            <Box sx={{ backgroundColor: colorFondo, minHeight: "100vh", padding: 5 }}>
                 <Grid2 container direction="row" alignItems="center" justifyContent="center">
                     <Grid2 xs={1} item>
                         <Box
@@ -32,10 +32,10 @@ function RutaNotFound() {
                         <Typography variant="h3" gutterBottom sx={{ color: "#24c55e" }}>
                             Error 404
                         </Typography>
-                        <Typography variant="h6" color="textSecondary" sx={ { color: colorTexto } }>
+                        <Typography variant="h6" color="textSecondary" sx={{ color: colorTexto }}>
                             Vaya, esa ruta es casi tan confusa como esta imagen
                         </Typography>
-                        <Typography variant="h6" color="textSecondary" sx={ { color: colorTexto } }>
+                        <Typography variant="h6" color="textSecondary" sx={{ color: colorTexto }}>
                             Por favor, pulsa el siguiente boton para volver
                         </Typography>
                     </Grid2>
@@ -46,7 +46,12 @@ function RutaNotFound() {
                     justifyContent: 'center',
                     marginBottom: 5
                 }}>
-                    <Button variant="contained" startIcon={<ReplyIcon />} color='success' onClick={() => navigate(-1)}>
+                    <Button
+                        variant="contained"
+                        startIcon={<ReplyIcon />}
+                        color='success'
+                        onClick={() => navigate('/')}
+                    >
                         Volver
                     </Button>
                 </Box>

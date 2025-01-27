@@ -13,7 +13,7 @@ import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import GroupIcon from '@mui/icons-material/Group';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import { Typography } from '@mui/material';
+import { Link, Typography } from '@mui/material';
 
 export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo, colorTexto, colorIcono }) {
 
@@ -21,14 +21,18 @@ export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo,
         <Box
             sx={{ width: 300, backgroundColor: colorFondo, height: "100vh" }}
             role="presentation"
-            onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
                 <Typography variant='h6' sx={{ color: colorTexto, padding: 2 }} >Clientes</Typography>
                 {['Registrar un cliente', 'Ver todos los clientes'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton sx={ { paddingLeft: 5 } }>
+                        <ListItemButton
+                            sx={{ paddingLeft: 5 }}
+                            componenet={Link}
+                            to={index % 2 === 0 ? "/altaCliente" : "/listaClientes"}
+                            onClick={(e) => e.stopPropagation()}
+                        >
                             <ListItemIcon sx={{ color: colorIcono }}>
                                 {index % 2 === 0 ? <PersonAddIcon /> : <GroupIcon />}
                             </ListItemIcon>
@@ -37,12 +41,16 @@ export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo,
                     </ListItem>
                 ))}
             </List>
-            <hr className='border-3 rounded-5' style={{ backgroundColor: colorFondo === "#FFFFFF" ? "#24c55e" : "#FFFFFF", border: colorFondo === "#FFFFFF" ? "3px solid #24c55e" : "3px solid #FFFFFF" }} />
+            <hr className='border-3' style={{ backgroundColor: colorFondo === "#FFFFFF" ? "#24c55e" : "#FFFFFF", border: colorFondo === "#FFFFFF" ? "3px solid #24c55e" : "3px solid #FFFFFF" }} />
             <List>
-            <Typography variant='h6' sx={{ color: colorTexto, padding: 2 }} >Pedidos</Typography>
+                <Typography variant='h6' sx={{ color: colorTexto, padding: 2 }} >Pedidos</Typography>
                 {['Registrar pedido', 'Listar pedidos'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton sx={ { paddingLeft: 5 } }>
+                        <ListItemButton
+                            sx={{ paddingLeft: 5 }}
+                            componenet={Link}
+                            to={index % 2 === 0 ? "/altaPedido" : "/listaPedidos"}
+                            onClick={(e) => e.stopPropagation()}>
                             <ListItemIcon sx={{ color: colorIcono }}>
                                 {index % 2 === 0 ? <AddShoppingCartIcon /> : <ShoppingCartCheckoutIcon />}
                             </ListItemIcon>

@@ -17,7 +17,7 @@ function Home() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
     
     return (
-        <div style={{ height: "100vh", backgroundColor: colorFondo }}>
+        <div style={{ minHeight: "100vh", backgroundColor: colorFondo }}>
             <MDBCarousel showControls showIndicators className='mb-5'>
                 <MDBCarouselItem itemId={1}>
                     <img src={CarrouselImage} className='d-block w-100' alt='...' style={{ maxHeight: "600px", objectFit: "cover" }} />

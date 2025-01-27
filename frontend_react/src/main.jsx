@@ -15,6 +15,7 @@ import Home from './Pages/Home'
 import MenuApp from './Componentes/Menu'
 import RutaNotFound from './Pages/RutaNotFound'
 import { TemaProvider } from './Componentes/TemaProvider'
+import FormularioAltaCliente from './Pages/FormularioAltaCliente'
 
 let router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ let router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/altaCliente",
+        element: <FormularioAltaCliente />,
       },
     ],
   },
