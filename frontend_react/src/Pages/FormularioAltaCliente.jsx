@@ -10,10 +10,11 @@ import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import KeyIcon from '@mui/icons-material/Key';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import TransgenderIcon from '@mui/icons-material/Transgender';
+import FolderDeleteIcon from '@mui/icons-material/FolderDelete';
 
 function FormularioAltaCliente() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
-    const [image, setImage] = useState(null);
+    const [image, setImage] = useState("");
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
@@ -27,7 +28,7 @@ function FormularioAltaCliente() {
     };
 
     const handleImageRemove = () => {
-        setImage(null);
+        setImage("");
     };
 
     return (
@@ -44,30 +45,49 @@ function FormularioAltaCliente() {
                     borderRadius: 2,
                 }
             }>
-                <Grid2 item size={{ md: 12, lg: 3 }} >
-                    <Stack spacing={2} alignItems="center">
+                <Grid2 item size={{ md: 12, lg: 3 }} container direction="column" justifyContent="center" alignItems="center">
+                    <Grid2 item>
                         <Avatar
                             src={image}
                             sx={{ width: 300, height: 300 }}
                         />
-                        <input
-                            accept="image/*"
-                            id="upload-image"
-                            type="file"
-                            style={{ display: "none" }}
-                            onChange={handleImageChange}
-                        />
-                        <label htmlFor="upload-image">
-                            <Button
-                                variant="contained"
-                                component="span"
-                                startIcon={<CloudUploadIcon />}
-                                color="success"
-                            >
-                                Subir Imagen
-                            </Button>
-                        </label>
-                    </Stack>
+                    </Grid2>
+                    <Grid2 item container justifyContent="center">
+                        <Stack direction="row" spacing={2}>
+                            <input
+                                accept="image/*"
+                                id="upload-image"
+                                type="file"
+                                style={{ display: "none" }}
+                                onChange={handleImageChange}
+                            />
+                            <label htmlFor="upload-image">
+                                <Button
+                                    variant="contained"
+                                    component="span"
+                                    startIcon={<CloudUploadIcon />}
+                                    color="success"
+                                >
+                                    Subir Imagen
+                                </Button>
+                            </label>
+                            <input
+                                id="delete-image"
+                                style={{ display: "none" }}
+                                onClick={handleImageRemove}
+                            />
+                            <label htmlFor="delete-image">
+                                <Button
+                                    variant="contained"
+                                    component="span"
+                                    startIcon={<FolderDeleteIcon />}
+                                    color="error"
+                                >
+                                    Borrar Imagen
+                                </Button>
+                            </label>
+                        </Stack>
+                    </Grid2>
                 </Grid2>
                 <Grid2 item size={{ md: 12, lg: 9 }} container direction="column" spacing={7}>
                     <Grid2 item container direction="row" spacing={7}>
@@ -82,6 +102,7 @@ function FormularioAltaCliente() {
                                                 <AccountCircle sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -112,6 +133,7 @@ function FormularioAltaCliente() {
                                                 <ContactMailIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -144,6 +166,7 @@ function FormularioAltaCliente() {
                                                 <BadgeIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -174,6 +197,7 @@ function FormularioAltaCliente() {
                                                 <AssignmentIndIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -206,6 +230,7 @@ function FormularioAltaCliente() {
                                                 <ContactPhoneIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -236,6 +261,7 @@ function FormularioAltaCliente() {
                                                 <KeyIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -269,6 +295,7 @@ function FormularioAltaCliente() {
                                                 <FmdGoodIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -299,6 +326,7 @@ function FormularioAltaCliente() {
                                                 <TransgenderIcon sx={{ color: colorIcono }} />
                                             </InputAdornment>
                                         ),
+                                        sx: { color: colorTexto }
                                     },
                                 }}
                                 variant="standard"
@@ -321,6 +349,11 @@ function FormularioAltaCliente() {
                     </Grid2>
                 </Grid2>
             </Grid2>
+            <Box sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
+                <Button variant="contained" color="success">
+                    Guardar
+                </Button>
+            </Box>
         </Box>
     );
 }
