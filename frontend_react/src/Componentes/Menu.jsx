@@ -55,7 +55,7 @@ function MenuApp() {
                                 loading='lazy'
                                 className="me-4"
                             />
-                            <Typography variant="h3" className="easyOrders" sx={{ color: colorTexto }}>
+                            <Typography variant="h3" className="easyOrders fs-2" sx={{ color: colorTexto }}>
                                 EasyOrders
                             </Typography>
                         </MDBNavbarBrand>
