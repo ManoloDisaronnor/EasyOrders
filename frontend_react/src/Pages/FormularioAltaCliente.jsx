@@ -1,7 +1,13 @@
 import { Box, Typography, Button, Avatar, Stack, Grid2, TextField, InputAdornment, IconButton, MenuItem, Select, InputLabel, ListItemIcon, ListItemText } from "@mui/material";
+import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogContent from '@mui/material/DialogContent';
+import DialogActions from '@mui/material/DialogActions';
+import CloseIcon from '@mui/icons-material/Close';
 import { motion } from "framer-motion";
 import { useTema } from "../Componentes/TemaProvider";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../assets/style/estiloFuenteNavBar.css'
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import AccountCircle from '@mui/icons-material/AccountCircle';
@@ -20,6 +26,15 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import SendIcon from '@mui/icons-material/Send';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
+    '& .MuiDialogContent-root': {
+        padding: theme.spacing(2),
+    },
+    '& .MuiDialogActions-root': {
+        padding: theme.spacing(1),
+    },
+}));
+
 function FormularioAltaCliente() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
     const [image, setImage] = useState("");
@@ -32,18 +47,54 @@ function FormularioAltaCliente() {
     const [direccionCliente, setDireccionCliente] = useState("");
     const [sexo, setSexo] = useState("");
     const [showPasswd, setShowPasswd] = useState(false);
+    const [showDialog, setShowDialog] = useState(false);
+    const [mensajeDialog, setMensajeDialog] = useState("");
+    const [guardarCliente, setGuardarCliente] = useState(false);
 
-    const handleSubmit = () => {
-        console.log("Imagen: ", image);
-        console.log("Nombre de usuario: ", nombreUsuarioCliente);
-        console.log("Correo: ", correoCliente);
-        console.log("Nombre: ", nombreCliente);
-        console.log("Apellidos: ", apellidosCliente);
-        console.log("Telefono: ", telefonoCliente);
-        console.log("Contraseña: ", contrasenyaCliente);
-        console.log("Direccion: ", direccionCliente);
-        console.log("Sexo: ", sexo);
-    };
+    useEffect(() => {
+        async function insertCliente() {
+            if (guardarCliente) {
+                setGuardarCliente(false);
+                try {
+                    const cliente = {
+                        id_cliente: null,
+                        usuario: nombreUsuarioCliente,
+                        nombre: nombreCliente,
+                        apellidos: apellidosCliente,
+                        correo: correoCliente,
+                        password: contrasenyaCliente,
+                        telefono: telefonoCliente,
+                        imagen: image,
+                        direccion: direccionCliente,
+                        sexo: sexo,
+                    };
+                    const response = await fetch("http://localhost:3000/api/clientes/altacliente", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(cliente),
+                    });
+                    const data = await response.json();
+                    if (response.ok) {
+                        setMensajeDialog(data.mensaje);
+                        setShowDialog(true);
+                        handleBorrarCampos();
+                    } else {
+                        setMensajeDialog(data.mensaje);
+                        setShowDialog(true);
+                    }
+
+                } catch (error) {
+                    setMensajeDialog("Error al insertar el cliente " + error);
+                    setShowDialog(true);
+                }
+            }
+        }
+
+        insertCliente();
+    }, [guardarCliente]);
+
 
     const handleBorrarCampos = () => {
         setImage("");
@@ -465,13 +516,44 @@ function FormularioAltaCliente() {
                 </Grid2>
             </Grid2>
             <Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
-                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={handleSubmit}>
+                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={() => setGuardarCliente(true)}>
                     Dar de alta
                 </Button>
                 <Button variant="contained" color="error" startIcon={<CleaningServicesIcon />} onClick={handleBorrarCampos}>
                     Borrar campos
                 </Button>
             </Stack>
+            <BootstrapDialog
+                onClose={() => setShowDialog(false)}
+                aria-labelledby="tituloDialogo"
+                open={showDialog}
+            >
+                <DialogTitle sx={{ m: 0, p: 2, backgroundColor: colorFondo, color: colorTexto }} id="tituloDialogo">
+                    INFORMACIÓN DE LA OPERACIÓN
+                </DialogTitle>
+                <IconButton
+                    aria-label="close"
+                    onClick={() => setShowDialog(false)}
+                    sx={(theme) => ({
+                        position: 'absolute',
+                        right: 8,
+                        top: 8,
+                        color: theme.palette.grey[500],
+                    })}
+                >
+                    <CloseIcon sx={{ color: colorIcono }} />
+                </IconButton>
+                <DialogContent sx={{ backgroundColor: colorFondo }} dividers>
+                    <Typography gutterBottom sx={{ color: colorTexto }} >
+                        {mensajeDialog}
+                    </Typography>
+                </DialogContent>
+                <DialogActions sx={{ backgroundColor: colorFondo }}>
+                    <Button autoFocus onClick={() => setShowDialog(false)} color="success" >
+                        Aceptar
+                    </Button>
+                </DialogActions>
+            </BootstrapDialog>
         </Box>
     );
 }
