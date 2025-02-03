@@ -17,3 +17,21 @@ Content-Type: application/json
     "direccion": "PruebaDireccion",
     "sexo": "N"
 }
+
+###
+DELETE http://localhost:3000/api/clientes/eliminarcliente/5
+
+###
+PUT http://localhost:3000/api/clientes/modificarcliente/2
+Content-Type: application/json
+
+{
+    "usuario": "jconpon219",
+    "nombre": "Manoli",
+    "apellidos": "Santita",
+    "correo": "jconpon219@hnosmachado.org",
+    "telefono": 742251860,
+    "imagen": "",
+    "direccion": "Calle Guipuzcua 11",
+    "sexo": "M"
+}

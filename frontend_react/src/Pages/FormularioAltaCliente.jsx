@@ -1,4 +1,4 @@
-import { Box, Typography, Button, Avatar, Stack, Grid2, TextField, InputAdornment, IconButton, MenuItem, Select, InputLabel, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, Typography, Button, Avatar, Stack, Grid2, TextField, InputAdornment, IconButton, MenuItem, Select, InputLabel, ListItemIcon, ListItemText, CircularProgress } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -50,10 +50,24 @@ function FormularioAltaCliente() {
     const [showDialog, setShowDialog] = useState(false);
     const [mensajeDialog, setMensajeDialog] = useState("");
     const [guardarCliente, setGuardarCliente] = useState(false);
+    const [loadingInsertion, setLoadingInsertion] = useState(false);
+
+    const estilosTextField = {
+        '& .MuiInputLabel-root': {
+            color: colorTexto,
+        },
+        '& .MuiInput-underline:before': {
+            borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
+        },
+        '& .MuiInput-underline:after': {
+            borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
+        },
+    };
 
     useEffect(() => {
         async function insertCliente() {
             if (guardarCliente) {
+                setLoadingInsertion(true);
                 setGuardarCliente(false);
                 try {
                     const cliente = {
@@ -89,6 +103,7 @@ function FormularioAltaCliente() {
                     setMensajeDialog("Error al insertar el cliente " + error);
                     setShowDialog(true);
                 }
+                setLoadingInsertion(false);
             }
         }
 
@@ -113,7 +128,9 @@ function FormularioAltaCliente() {
         if (file) {
             const reader = new FileReader();
             reader.onloadend = () => {
-                setImage(reader.result);
+                const dataUrl = reader.result;
+                const base64 = dataUrl.split(',')[1];
+                setImage(base64);
             };
             reader.readAsDataURL(file);
         }
@@ -143,7 +160,7 @@ function FormularioAltaCliente() {
                 <Grid2 item size={{ xs: 12, md: 12, lg: 4 }} container direction="column" justifyContent="center" alignItems="center">
                     <Grid2 item>
                         <Avatar
-                            src={image}
+                            src={image ? `data:image/*;base64,${image}` : null}
                             sx={{ width: 300, height: 300 }}
                         />
                     </Grid2>
@@ -199,27 +216,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-
-                                    // Para cambiar cuando te sujiere un campo
-                                    '& input:-webkit-autofill': {
-                                        WebkitTextFillColor: `${colorTexto} !important`,
-                                        background: `${colorFondo} !important`,
-                                    },
-                                    '& input:-webkit-autofill:focus': {
-                                        WebkitTextFillColor: `${colorTexto} !important`,
-                                        background: `${colorFondo} !important`,
-                                    }
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                         <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
@@ -242,17 +239,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                     </Grid2>
@@ -277,17 +264,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                         <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
@@ -310,17 +287,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                     </Grid2>
@@ -345,17 +312,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                         <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
@@ -388,17 +345,7 @@ function FormularioAltaCliente() {
                                 focused
                                 fullWidth
                                 type={showPasswd ? "text" : "password"}
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                     </Grid2>
@@ -423,17 +370,7 @@ function FormularioAltaCliente() {
                                 color={colorFondo === '#FFFFFF' ? 'success' : 'default'}
                                 focused
                                 fullWidth
-                                sx={{
-                                    '& .MuiInputLabel-root': {
-                                        color: colorTexto,
-                                    },
-                                    '& .MuiInput-underline:before': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                    '& .MuiInput-underline:after': {
-                                        borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
-                                    },
-                                }}
+                                sx={estilosTextField}
                             />
                         </Grid2>
                         <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
@@ -516,8 +453,8 @@ function FormularioAltaCliente() {
                 </Grid2>
             </Grid2>
             <Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
-                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={() => setGuardarCliente(true)}>
-                    Dar de alta
+                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={() => setGuardarCliente(true)} disabled={loadingInsertion}>
+                    {loadingInsertion ? <CircularProgress size="25px" color="white" thickness="5"/> : "Dar de alta"}
                 </Button>
                 <Button variant="contained" color="error" startIcon={<CleaningServicesIcon />} onClick={handleBorrarCampos}>
                     Borrar campos
