@@ -145,7 +145,7 @@ function FormularioAltaCliente() {
     };
 
     return (
-        <Box sx={{ backgroundColor: colorFondo, minHeight: "100vh", padding: 5 }}>
+        <Box sx={{ p: 5 }}>
             <Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
                 Formulario de alta de cliente
             </Typography>

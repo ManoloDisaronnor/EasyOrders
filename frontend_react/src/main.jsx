@@ -17,6 +17,7 @@ import RutaNotFound from './Pages/RutaNotFound'
 import { TemaProvider } from './Componentes/TemaProvider'
 import FormularioAltaCliente from './Pages/FormularioAltaCliente'
 import ListaClientes from './Pages/ListaClientes'
+import FormularioAltaPedido from './Pages/FormularioAltaPedido'
 
 let router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ let router = createBrowserRouter([
       {
         path: "/listaClientes",
         element: <ListaClientes />,
+      },
+      {
+        path: "/altaPedido",
+        element: <FormularioAltaPedido />,
       }
     ],
   },

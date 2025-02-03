@@ -176,7 +176,7 @@ function ListaClientes() {
     };
 
     return (
-        <Box sx={{ backgroundColor: colorFondo, minHeight: "100vh", padding: 5 }}>
+        <Box sx={{ p: 5 }}>
             {cargando ?
                 <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <CircularProgress color={colorFondo === "#FFFFFF" ? "success" : "white"} />
@@ -184,6 +184,9 @@ function ListaClientes() {
                 :
                 !error ?
                     <>
+                        <Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
+                            Listado de todos los clientes de EasyOrders
+                        </Typography>
                         <Grid2 container spacing={5} sx={{ height: "100%", width: "100%" }}>
                             {clientes.map((cliente) => {
                                 const getIcono = () => {
@@ -201,7 +204,7 @@ function ListaClientes() {
                                                 <CardMedia
                                                     component="img"
                                                     alt={cliente.nombre}
-                                                    height="350"
+                                                    height="400"
                                                     image={cliente.imagen ? `data:image/png;base64,${cliente.imagen}` : "/static/images/ImagenPerfilPorDefecto.png"}
                                                 />
                                                 <CardContent>
