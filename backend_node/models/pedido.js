@@ -12,15 +12,19 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     fecha_pedido: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
       allowNull: false
     },
     fecha_entrega: {
-      type: DataTypes.DATE,
+      type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    precio: {
+      type: DataTypes.FLOAT(8,2),
       allowNull: false
     },
-    total: {
-      type: DataTypes.FLOAT(8,2),
+    unidades: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     estado: {
