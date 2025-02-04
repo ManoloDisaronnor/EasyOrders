@@ -18,6 +18,7 @@ import { TemaProvider } from './Componentes/TemaProvider'
 import FormularioAltaCliente from './Pages/FormularioAltaCliente'
 import ListaClientes from './Pages/ListaClientes'
 import FormularioAltaPedido from './Pages/FormularioAltaPedido'
+import ListaPedidos from './Pages/ListaPedidos'
 
 let router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ let router = createBrowserRouter([
       {
         path: "/altaPedido",
         element: <FormularioAltaPedido />,
+      },
+      {
+        path: "/listaPedidos",
+        element: <ListaPedidos />,
       }
     ],
   },
