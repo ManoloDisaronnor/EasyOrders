@@ -19,6 +19,7 @@ import FormularioAltaCliente from './Pages/FormularioAltaCliente'
 import ListaClientes from './Pages/ListaClientes'
 import FormularioAltaPedido from './Pages/FormularioAltaPedido'
 import ListaPedidos from './Pages/ListaPedidos'
+import BuscarCliente from './Pages/BuscarCliente'
 
 let router = createBrowserRouter([
   {
@@ -26,7 +27,6 @@ let router = createBrowserRouter([
     element: <MenuApp />,
     errorElement: (
       <>
-        <MenuApp />
         <RutaNotFound />
       </>
     ),
@@ -50,6 +50,10 @@ let router = createBrowserRouter([
       {
         path: "/listaPedidos",
         element: <ListaPedidos />,
+      },
+      {
+        path: "/buscarCliente",
+        element: <BuscarCliente />
       }
     ],
   },

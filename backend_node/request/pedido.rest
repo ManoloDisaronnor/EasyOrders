@@ -17,3 +17,17 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/api/pedidos/eliminarpedido/1
+
+###
+PUT http://localhost:3000/api/pedidos/modificarpedido/5
+Content-Type: application/json
+
+{
+    "producto": "productoPedido",
+    "fecha_pedido": "2005-03-18",
+    "fecha_entrega": "2005-03-19",
+    "precio": 0,
+    "unidades": 2,
+    "estado": "Entregado",
+    "id_cliente": 1
+}

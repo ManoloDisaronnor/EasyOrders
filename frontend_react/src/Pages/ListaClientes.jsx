@@ -118,10 +118,11 @@ function ListaClientes() {
                         sexo: clienteSeleccionado.sexo
                     })
                 });
+                const data = await response.json();
                 if (response.ok) {
                     setMensajeDialogoInformacion("El cliente " + clienteSeleccionado.nombre + " ha sido modificado correctamente");
                 } else {
-                    setMensajeDialogoInformacion("Error al modificar el cliente " + clienteSeleccionado.nombre);
+                    setMensajeDialogoInformacion(data.mensaje);
                 }
             } catch (error) {
                 setMensajeDialogoInformacion("Error al modificar el cliente " + clienteSeleccionado.nombre + " " + error);

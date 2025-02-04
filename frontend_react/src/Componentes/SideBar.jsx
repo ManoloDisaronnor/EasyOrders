@@ -2,13 +2,11 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import GroupIcon from '@mui/icons-material/Group';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
@@ -19,22 +17,22 @@ export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo,
 
     const list = (anchor) => (
         <Box
-            sx={{ width: 300, backgroundColor: colorFondo, height: "100vh" }}
+            sx={{ width: 325, backgroundColor: colorFondo, height: "100vh" }}
             role="presentation"
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
                 <Typography variant='h6' sx={{ color: colorTexto, padding: 2 }} >Clientes</Typography>
-                {['Registrar un cliente', 'Ver todos los clientes'].map((text, index) => (
+                {['Registrar un cliente', 'Ver todos los clientes', 'Buscar cliente y sus pedidos'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton
                             sx={{ paddingLeft: 5 }}
                             componenet={Link}
-                            to={index % 2 === 0 ? "/altaCliente" : "/listaClientes"}
+                            to={index === 0 ? "/altaCliente" : index === 1 ? "/listaClientes" : "/buscarCliente"}
                             onClick={(e) => e.stopPropagation()}
                         >
                             <ListItemIcon sx={{ color: colorIcono }}>
-                                {index % 2 === 0 ? <PersonAddIcon /> : <GroupIcon />}
+                                {index === 0 ? <PersonAddIcon /> : index === 1 ? <GroupIcon /> : <PersonSearchIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} sx={{ color: colorTexto }} />
                         </ListItemButton>

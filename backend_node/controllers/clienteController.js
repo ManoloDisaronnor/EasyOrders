@@ -136,6 +136,41 @@ class ClienteController {
         }
     }
 
+    // ESTA FUNCION LA HE CREADO PARA RECOGER LOS CLIENTES PARA EL SELECT DE MODIFICAR PEDIDO, 
+    // ESTO LO HAGO EN UNA FUNCION A PARTE PARA NO RECOGER LA IMAGEN Y TODOS LOS DEMAS ATRIBUTOS DE CLIENTE YA QUE SERIA UNA CARGA INNECESARIA
+    async getAllClientesPedidos(req, res) {
+        try {
+            const clientes = await Cliente.findAll({
+                attributes: ['id_cliente', 'nombre'],
+            });
+            return res.status(200).json(Respuesta.exito(clientes, "Clientes recuperados correctamente"));
+        } catch (error) {
+            return res.status(404).json(Respuesta.error(null, "Error al recuperar los clientes " + error, "CLIENTES_NO_RECUPERADOS"));
+        }
+    }
+
+    async getCliente(req, res) {
+        try {
+            const { nombreUsuario } = req.params;
+            const cliente = await Cliente.findOne({
+                where: {
+                    usuario: nombreUsuario
+                },
+                attributes: {
+                    exclude: ['password']
+                },
+            });
+            if (cliente) {
+                return res.json(Respuesta.exito(cliente, "Cliente recuperado correctamente"));
+            } else {
+                return res.status(404).json(Respuesta.error(null, "No se ha encontrado ningún cliente con el nombre de usuario " + nombreUsuario, "CLIENTE_NO_ENCONTRADO"));
+            }
+        } catch (error) {
+            return res.status(404).json(Respuesta.error(null, "Error al recuperar el cliente " + error, "CLIENTE_NO_RECUPERADO"));
+        }
+
+    }
+
 }
 
 module.exports = new ClienteController();

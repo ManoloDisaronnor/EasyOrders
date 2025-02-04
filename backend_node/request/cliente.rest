@@ -1,4 +1,3 @@
-###
 GET http://localhost:3000/api/clientes
 
 ###
@@ -35,3 +34,9 @@ Content-Type: application/json
     "direccion": "Calle Guipuzcua 11",
     "sexo": "M"
 }
+
+###
+GET http://localhost:3000/api/clientes/clientespedido
+
+###
+POST http://localhost:3000/api/clientes/buscarcliente/xmsanmar318v
