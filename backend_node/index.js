@@ -1,5 +1,3 @@
-// Importar libreria para manejo de ficheros de configuración
-require("dotenv").config();
 // Importar fichero de configuración con variables de entorno
 const config = require("./config/config");
 // Importar librería express --> web server

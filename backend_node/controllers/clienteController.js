@@ -41,8 +41,8 @@ class ClienteController {
     async insertCliente(req, res) {
         const cliente = req.body;
         try {
-            if (cliente.usuario === "" || cliente.nombre === "" || cliente.correo === "" || cliente.password === "" || cliente.sexo === "") {
-                return res.status(400).json(Respuesta.error(null, "Por favor, rellene al menos los campos nombre, nombre de usuario, correo, contraseña y sexo", "FALTAN_DATOS"));
+            if (cliente.usuario === "" || cliente.nombre === "" || cliente.correo === "" || cliente.password === "" || cliente.sexo === "" || cliente.telefono === "") {
+                return res.status(400).json(Respuesta.error(null, "Por favor, rellene al menos los campos nombre, nombre de usuario, correo, contraseña, teléfono y sexo", "FALTAN_DATOS"));
             } else {
                 let clienteExistente = await Cliente.findOne({ where: { correo: cliente.correo } });
                 if (clienteExistente) {

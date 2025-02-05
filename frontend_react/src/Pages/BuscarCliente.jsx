@@ -224,7 +224,7 @@ function BuscarCliente() {
             </Box>
         );
     }
-    
+
     const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - pedidosCliente.length) : 0;
 
     const handleChangePage = (event, newPage) => {
@@ -336,7 +336,11 @@ function BuscarCliente() {
             });
             const data = await response.json();
             if (response.ok) {
-                setPedidosCliente(data.datos);
+                if (data.datos.length > 0) {
+                    setPedidosCliente(data.datos);
+                } else {
+                    setPedidosCliente(null);
+                }
             } else {
                 setPedidosCliente(null);
                 setMensajeDialogoInformacion(data.mensaje);
@@ -694,7 +698,7 @@ function BuscarCliente() {
                                 fullWidth={true}
                                 maxWidth="xl"
                             >
-                                <DialogTitle sx={{ m: 0, p: 2, color: colorTexto, backgroundColor: colorFondo }} id="dialogoPedidosClienteTitulo">
+                                <DialogTitle sx={{ m: 0, p: 2, color: colorTexto, backgroundColor: colorFondo, fontSize: "1.5em" }} id="dialogoPedidosClienteTitulo">
                                     {"Pedidos de " + clienteBusqueda.nombre + " " + clienteBusqueda.apellidos}
                                 </DialogTitle>
                                 <IconButton
@@ -711,7 +715,7 @@ function BuscarCliente() {
                                 </IconButton>
                                 <DialogContent dividers sx={{ backgroundColor: colorFondo }}>
                                     {pedidosCliente === null ?
-                                        <Typography variant="h5" align="center" sx={{ color: "#fa0202" }}>
+                                        <Typography variant="h4" align="center" sx={{ color: "#fa0202", m: 5 }}>
                                             No hay pedidos asociados a este cliente
                                         </Typography>
                                         :

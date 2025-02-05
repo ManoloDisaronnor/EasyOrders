@@ -31,7 +31,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     telefono: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       unique: "UK_Cliente_telefono"
     },
     imagen: {
@@ -60,19 +60,19 @@ module.exports = function(sequelize, DataTypes) {
         ]
       },
       {
-        name: "UK_Cliente_correo",
-        unique: true,
-        using: "BTREE",
-        fields: [
-          { name: "correo" },
-        ]
-      },
-      {
         name: "UK_Cliente_usuario",
         unique: true,
         using: "BTREE",
         fields: [
           { name: "usuario" },
+        ]
+      },
+      {
+        name: "UK_Cliente_correo",
+        unique: true,
+        using: "BTREE",
+        fields: [
+          { name: "correo" },
         ]
       },
       {
