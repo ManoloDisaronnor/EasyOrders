@@ -123,6 +123,27 @@ class PedidoController {
         }
 
     }
+
+    async getPedidosCliente(req, res) {
+        const { idCliente } = req.params;
+        try {
+
+            if (idCliente === "" || idCliente === null) {
+                return res.status(400).json(Respuesta.error(null, "Por favor, indique el id del cliente para recuperar los pedidos", "FALTAN_DATOS"));
+            }
+
+            const response = await Pedido.findAll({
+                where: {
+                    id_cliente: idCliente
+                }
+            });
+
+            return res.status(200).json(Respuesta.exito(response, "Pedidos recuperados correctamente"));
+
+        } catch (error) {
+            return res.status(500).json(Respuesta.error(null, "Error al recuperar los pedidos del cliente " + idCliente + " " + error, "PEDIDOS_NO_RECUPERADOS"));
+        }
+    }
 }
 
 module.exports = new PedidoController();

@@ -6,5 +6,6 @@ router.get('/', pedidoController.getAllPedidos);
 router.post('/altapedido', pedidoController.insertPedido);
 router.delete('/eliminarpedido/:idPedido', pedidoController.deletePedido);
 router.put('/modificarpedido/:idPedido', pedidoController.updatePedido);
+router.post('/pedidoscliente/:idCliente', pedidoController.getPedidosCliente);
 
 module.exports = router;

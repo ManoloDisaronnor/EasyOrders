@@ -515,7 +515,7 @@ function ListaClientes() {
                             </DialogTitle>
                             <DialogContent sx={{ backgroundColor: colorFondo }}>
                                 <DialogContentText id="dialogoBorrarClienteDescripcion" sx={{ color: colorTexto }}>
-                                    {`Estas seguro de que quieres eliminar al cliente "${clienteSeleccionado.nombre}"?`}
+                                    {`Estas seguro de que quieres eliminar al cliente "${clienteSeleccionado.nombre} ${clienteSeleccionado.apellidos}" y todos sus pedidos asociados?`}
                                 </DialogContentText>
                             </DialogContent>
                             <DialogActions sx={{ backgroundColor: colorFondo }}>

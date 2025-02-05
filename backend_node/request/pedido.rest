@@ -31,3 +31,6 @@ Content-Type: application/json
     "estado": "Entregado",
     "id_cliente": 1
 }
+
+###
+POST http://localhost:3000/api/pedidos/pedidoscliente/1

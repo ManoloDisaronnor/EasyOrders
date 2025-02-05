@@ -161,7 +161,11 @@ class ClienteController {
                 },
             });
             if (cliente) {
-                return res.json(Respuesta.exito(cliente, "Cliente recuperado correctamente"));
+                const clienteConImagen = {
+                    ...cliente.dataValues,
+                    imagen: cliente.imagen.toString('base64')
+                };
+                return res.json(Respuesta.exito(clienteConImagen, "Cliente recuperado correctamente"));
             } else {
                 return res.status(404).json(Respuesta.error(null, "No se ha encontrado ningún cliente con el nombre de usuario " + nombreUsuario, "CLIENTE_NO_ENCONTRADO"));
             }
