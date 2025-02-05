@@ -35,7 +35,7 @@ Cuando tengamos los servicios corriendo, simplemente accedemos al servidor media
 
 ### EJECUCIÓN POR CODIGO DE LOS SERVIDORES
 
-Aun así si usas VisualStudioCode, puedes ejecutar los contenedores desde el terminal entrando en la carpeta con el comando correspondiente
+Aun así, puedes ejecutar los contenedores desde el terminal entrando en la carpeta con el comando correspondiente
 
 ```markdown
 cd frontend_react # sustituir por backend_node si quieres iniciar el backend
