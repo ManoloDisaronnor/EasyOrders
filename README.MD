@@ -1,4 +1,4 @@
-# [https://github.com/ManoloDisaronnor/EasyOrders](EASYORDERS)
+# [EASYORDERS](https://github.com/ManoloDisaronnor/EasyOrders)
 Proyecto desarrollado por Manuel usando React y Node.js  
 
 ## INSTALACIÓN Y EJECUCIÓN
