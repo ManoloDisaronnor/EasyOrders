@@ -1,4 +1,4 @@
-# EASYORDERS
+# [https://github.com/ManoloDisaronnor/EasyOrders](EASYORDERS)
 Proyecto desarrollado por Manuel usando React y Node.js  
 
 ## INSTALACIÓN Y EJECUCIÓN
@@ -46,3 +46,14 @@ Y despues ejecutar el comando de ejecución de npm
 ```markdown
 npm run dev
 ```
+
+## OTROS DATOS DE INTERES
+### CONEXIÓN A LA BASE DE DATOS
+Los parametros para conectarse a la base de datos son los siguientes:  
+  
+port: 3000,  
+db.host: "localhost",  
+db.user: "root",  
+db.password: "test",  
+db.name: "EasyOrders",  
+db.port: 3306,
