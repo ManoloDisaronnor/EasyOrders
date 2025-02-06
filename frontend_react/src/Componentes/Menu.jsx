@@ -98,6 +98,21 @@ function MenuApp() {
                 }}>
                     <Outlet /> {/* Contenido de la ruta */}
                 </Box>
+                <footer>
+                    <Box sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: 2,
+                        backgroundColor: colorFondo,
+                        color: colorTexto,
+                        borderTop: '4px solid #24c55e'
+                    }}>
+                        <Typography variant="body1">
+                            &copy; 2025 EasyOrders. Todos los derechos reservados.
+                        </Typography>
+                    </Box>
+                </footer>
             </Box>
         </>
     );
