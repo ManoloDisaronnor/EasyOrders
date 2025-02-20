@@ -56,17 +56,20 @@ class PedidoController {
 
     async deletePedido(req, res) {
         const { idPedido } = req.params;
+    
         try {
-            const data = await Pedido.destroy(
-                {
-                    where: {
-                        id_pedido: idPedido
-                    }
-                }
-            );
-            return res.json(Respuesta.exito(data, "Pedido eliminado correctamente"));
+            // Verificar si el pedido existe
+            const pedido = await Pedido.findByPk(idPedido);
+            if (!pedido) {
+                return res.status(404).json(Respuesta.error(null, `Pedido con ID ${idPedido} no encontrado`, "PEDIDO_NO_ENCONTRADO"));
+            }
+    
+            // Eliminar el pedido
+            await Pedido.destroy({ where: { id_pedido: idPedido } });
+    
+            return res.json(Respuesta.exito(null, "Pedido eliminado correctamente"));
         } catch (error) {
-            return res.status(500).json(Respuesta.error(null, "Error al eliminar el el pedido " + idPedido + " " + error, "CLIENTE_NO_ELIMINADO"));
+            return res.status(500).json(Respuesta.error(null, `Error al eliminar el pedido ${idPedido}: ${error.message}`, "ERROR_ELIMINAR_PEDIDO"));
         }
     }
 
