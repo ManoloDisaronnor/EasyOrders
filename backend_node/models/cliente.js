@@ -9,12 +9,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     usuario: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: false,
       unique: "UK_Cliente_usuario"
     },
     nombre: {
       type: DataTypes.STRING(255),
-      allowNull: true
+      allowNull: false
     },
     apellidos: {
       type: DataTypes.STRING(255),
@@ -22,11 +22,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     correo: {
       type: DataTypes.STRING(255),
-      allowNull: true,
+      allowNull: false,
       unique: "UK_Cliente_correo"
     },
     password: {
-      type: DataTypes.STRING(60),
+      type: DataTypes.STRING(255),
       allowNull: false
     },
     telefono: {
@@ -44,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     sexo: {
       type: DataTypes.ENUM('H','M','N'),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

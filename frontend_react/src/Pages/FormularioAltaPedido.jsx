@@ -17,6 +17,7 @@ import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import SendIcon from '@mui/icons-material/Send';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import CloseIcon from '@mui/icons-material/Close';
+import { apiUrl } from "../config";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -45,7 +46,7 @@ function FormularioAltaPedido() {
     useEffect(() => {
         async function cargarClientes() {
             try {
-                const respuesta = await fetch("http://localhost:3000/api/clientes/");
+                const respuesta = await fetch( apiUrl + "/clientes/");
                 const datos = await respuesta.json();
                 if (respuesta.ok) {
                     setClientes(datos.datos);
@@ -75,7 +76,7 @@ function FormularioAltaPedido() {
                     estado: estadoProducto,
                     id_cliente: clientePedido
                 }
-                const respuesta = await fetch("http://localhost:3000/api/pedidos/altapedido", {
+                const respuesta = await fetch( apiUrl + "/pedidos/altapedido", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",

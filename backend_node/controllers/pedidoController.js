@@ -25,6 +25,48 @@ class PedidoController {
         }
     }
 
+    async getDatosClientesGrafica(req, res) {
+        try {
+            const clientes = await Pedido.findAll({
+                attributes: [
+                    'id_cliente', // Agrupar por el ID del cliente
+                    [sequelize.fn('COUNT', sequelize.col('id_pedido')), 'num_pedidos']
+                ],
+                include: [{
+                    model: Cliente,
+                    as: 'id_cliente_Cliente',
+                    attributes: ['usuario', 'nombre', 'apellidos', 'correo', 'direccion', 'telefono', 'imagen', 'sexo']
+                }],
+                group: ['id_cliente'],
+                raw: true
+            });
+            const clientesConImagen = clientes.map(cliente => {
+                // Accedemos a la imagen usando la notación de corchetes (por el raw: true)
+                const imagenBuffer = cliente['id_cliente_Cliente.imagen'];
+                
+                // Creamos un nuevo objeto con la estructura deseada
+                return {
+                    id_cliente: cliente.id_cliente,
+                    num_pedidos: cliente.num_pedidos,
+                    id_cliente_Cliente: {
+                        usuario: cliente['id_cliente_Cliente.usuario'],
+                        nombre: cliente['id_cliente_Cliente.nombre'],
+                        apellidos: cliente['id_cliente_Cliente.apellidos'],
+                        correo: cliente['id_cliente_Cliente.correo'],
+                        direccion: cliente['id_cliente_Cliente.direccion'],
+                        telefono: cliente['id_cliente_Cliente.telefono'],
+                        imagen: imagenBuffer ? imagenBuffer.toString('base64') : null, // Conversión directa
+                        sexo: cliente['id_cliente_Cliente.sexo']
+                    }
+                };
+            });
+            
+            return res.json(Respuesta.exito(clientesConImagen, "Clientes recuperados correctamente"));
+        } catch (error) {
+            return res.status(404).json(Respuesta.error(null, "Error al recuperar los datos de los clientes para la gráfica " + error, "DATOS_CLIENTES_GRAFICA_NO_RECUPERADOS"));
+        }
+    }
+
     async insertPedido(req, res) {
         const pedido = req.body;
         try {
@@ -56,20 +98,20 @@ class PedidoController {
 
     async deletePedido(req, res) {
         const { idPedido } = req.params;
-    
         try {
-            // Verificar si el pedido existe
-            const pedido = await Pedido.findByPk(idPedido);
-            if (!pedido) {
-                return res.status(404).json(Respuesta.error(null, `Pedido con ID ${idPedido} no encontrado`, "PEDIDO_NO_ENCONTRADO"));
+            const data = await Pedido.destroy({
+                where: {
+                    id_pedido: idPedido
+                }
+            });
+
+            if (data === 0) {
+                return res.status(404).json(Respuesta.error(null, `No se encontró el pedido con ID ${idPedido}`, "PEDIDO_NO_ENCONTRADO"));
             }
-    
-            // Eliminar el pedido
-            await Pedido.destroy({ where: { id_pedido: idPedido } });
-    
-            return res.json(Respuesta.exito(null, "Pedido eliminado correctamente"));
+
+            return res.json(Respuesta.exito(data, "Pedido eliminado correctamente"));
         } catch (error) {
-            return res.status(500).json(Respuesta.error(null, `Error al eliminar el pedido ${idPedido}: ${error.message}`, "ERROR_ELIMINAR_PEDIDO"));
+            return res.status(500).json(Respuesta.error(null, `Error al eliminar el pedido ${idPedido}: ${error}`, "ERROR_ELIMINAR_PEDIDO"));
         }
     }
 

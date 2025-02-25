@@ -42,15 +42,15 @@ export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo,
             <hr className='border-3' style={{ backgroundColor: colorFondo === "#FFFFFF" ? "#24c55e" : "#FFFFFF", border: colorFondo === "#FFFFFF" ? "3px solid #24c55e" : "3px solid #FFFFFF" }} />
             <List>
                 <Typography variant='h6' sx={{ color: colorTexto, padding: 2 }} >Pedidos</Typography>
-                {['Registrar pedido', 'Listar pedidos'].map((text, index) => (
+                {['Registrar pedido', 'Listar pedidos', 'Mostrar gráficas de pedidos'].map((text, index) => (
                     <ListItem key={text} disablePadding>
                         <ListItemButton
                             sx={{ paddingLeft: 5 }}
                             componenet={Link}
-                            to={index % 2 === 0 ? "/altaPedido" : "/listaPedidos"}
+                            to={index === 0 ? "/altaPedido" : index === 1 ? "/listaPedidos" : "/graficaPedidos"}
                             onClick={(e) => e.stopPropagation()}>
                             <ListItemIcon sx={{ color: colorIcono }}>
-                                {index % 2 === 0 ? <AddShoppingCartIcon /> : <ShoppingCartCheckoutIcon />}
+                                { index === 0 ? <AddShoppingCartIcon /> : index === 1 ? <ShoppingCartCheckoutIcon /> : <ShoppingCartCheckoutIcon /> }
                             </ListItemIcon>
                             <ListItemText primary={text} sx={{ color: colorTexto }} />
                         </ListItemButton>

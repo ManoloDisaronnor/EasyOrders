@@ -25,6 +25,7 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import { apiUrl } from "../config";
 
 function ListaClientes() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
@@ -57,7 +58,7 @@ function ListaClientes() {
     useEffect(() => {
         async function cargarClientes() {
             try {
-                const respuesta = await fetch("http://localhost:3000/api/clientes/");
+                const respuesta = await fetch( apiUrl + "/clientes/");
                 const datos = await respuesta.json();
                 if (respuesta.ok) {
                     setClientes(datos.datos);
@@ -76,7 +77,7 @@ function ListaClientes() {
     useEffect(() => {
         async function eliminarCliente() {
             try {
-                const respuesta = await fetch(`http://localhost:3000/api/clientes/eliminarcliente/${clienteSeleccionado.id_cliente}`, {
+                const respuesta = await fetch( apiUrl + `/clientes/eliminarcliente/${clienteSeleccionado.id_cliente}`, {
                     method: "DELETE"
                 });
                 if (respuesta.ok) {
@@ -102,7 +103,7 @@ function ListaClientes() {
     useEffect(() => {
         async function modificarCliente() {
             try {
-                const response = await fetch('http://localhost:3000/api/clientes/modificarcliente/' + clienteSeleccionado.id_cliente, {
+                const response = await fetch( apiUrl + '/clientes/modificarcliente/' + clienteSeleccionado.id_cliente, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

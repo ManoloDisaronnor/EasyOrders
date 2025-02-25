@@ -33,6 +33,7 @@ import MarkunreadMailboxIcon from '@mui/icons-material/MarkunreadMailbox';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from 'dayjs';
+import { apiUrl } from "../config";
 
 function ListaPedidos() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
@@ -170,7 +171,7 @@ function ListaPedidos() {
         async function cargarPedidos() {
             setLoading(true);
             try {
-                const response = await fetch("http://localhost:3000/api/pedidos/");
+                const response = await fetch( apiUrl + "/pedidos/");
                 const data = await response.json();
                 if (response.ok) {
                     setPedidos(data.datos);
@@ -188,7 +189,7 @@ function ListaPedidos() {
     useEffect(() => {
         async function eliminarPedido() {
             try {
-                const respuesta = await fetch(`http://localhost:3000/api/pedidos/eliminarpedido/${pedidoSeleccionado.id_pedido}`, {
+                const respuesta = await fetch( apiUrl + `/pedidos/eliminarpedido/${pedidoSeleccionado.id_pedido}`, {
                     method: "DELETE"
                 });
                 if (respuesta.ok) {
@@ -212,7 +213,7 @@ function ListaPedidos() {
 
     async function cargarClientesParaPedido() {
         try {
-            const respuesta = await fetch("http://localhost:3000/api/clientes/clientespedido");
+            const respuesta = await fetch(apiUrl + "/clientes/clientespedido");
             const datos = await respuesta.json();
             if (respuesta.ok) {
                 setClientes(datos.datos);
@@ -228,7 +229,7 @@ function ListaPedidos() {
     useEffect(() => {
         async function modPedido() {
             try {
-                const response = await fetch('http://localhost:3000/api/pedidos/modificarpedido/' + pedidoSeleccionado.id_pedido, {
+                const response = await fetch( apiUrl + '/pedidos/modificarpedido/' + pedidoSeleccionado.id_pedido, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

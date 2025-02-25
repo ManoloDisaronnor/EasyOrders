@@ -26,6 +26,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import { apiUrl } from "../config";
 
 function BuscarCliente() {
     const { colorFondo, colorTexto, colorIcono } = useTema();
@@ -148,6 +149,13 @@ function BuscarCliente() {
         }
     };
 
+    useEffect(() => {
+        if (clienteBusqueda) {
+            console.log("Cliente encontrado:", clienteBusqueda);
+            setClienteModificar(clienteBusqueda);
+        }
+    }, [clienteBusqueda]);
+
     const handleImageRemove = () => {
         setClienteModificar({ ...clienteModificar, imagen: "" });
     };
@@ -239,11 +247,13 @@ function BuscarCliente() {
     useEffect(() => {
         async function modificarCliente() {
             try {
-                const response = await fetch('http://localhost:3000/api/clientes/modificarcliente/' + clienteModificar.id_cliente, {
+                console.log("clienteModificar: ", clienteModificar);
+                const response = await fetch(apiUrl + '/clientes/modificarcliente/' + clienteModificar.id_cliente, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'
                     },
+
                     body: JSON.stringify({
                         usuario: clienteModificar.usuario,
                         nombre: clienteModificar.nombre,
@@ -264,10 +274,11 @@ function BuscarCliente() {
             } catch (error) {
                 setMensajeDialogoInformacion("Error al modificar el cliente " + clienteBusqueda.nombre + " " + error);
             }
-
-            realizarBusqueda(searchText);
+            
             setListoParaModificar(false);
             setAbrirDialogoInformacion(true);
+            setClienteBusqueda(clienteModificar);
+            
         }
         if (listoParaModificar) {
             modificarCliente();
@@ -278,7 +289,7 @@ function BuscarCliente() {
     useEffect(() => {
         async function eliminarCliente() {
             try {
-                const respuesta = await fetch(`http://localhost:3000/api/clientes/eliminarcliente/${clienteBusqueda.id_cliente}`, {
+                const respuesta = await fetch(apiUrl + `/clientes/eliminarcliente/${clienteBusqueda.id_cliente}`, {
                     method: "DELETE"
                 });
                 if (respuesta.ok) {
@@ -310,13 +321,13 @@ function BuscarCliente() {
                 setMensajeDialogoInformacion("El nombre de usuario no puede estar vacio");
                 setOpenDialogoInformacion(true);
             } else {
-                const response = await fetch(`http://localhost:3000/api/clientes/buscarcliente/${nombreUsuario}`, {
+                const response = await fetch(apiUrl + `/clientes/buscarcliente/${nombreUsuario}`, {
                     method: 'POST',
                 });
                 const data = await response.json();
                 if (response.ok) {
                     setClienteBusqueda(data.datos);
-                    console.log(clienteBusqueda);
+                    console.log("UseEffect busqueda " + clienteBusqueda);
                 } else {
                     setMensajeDialogoInformacion(data.mensaje);
                     setOpenDialogoInformacion(true);
@@ -327,11 +338,12 @@ function BuscarCliente() {
             setOpenDialogoInformacion(true);
         }
         setLoadingSearch(false);
+
     }
 
     async function buscarPedidosCliente() {
         try {
-            const response = await fetch(`http://localhost:3000/api/pedidos/pedidoscliente/${clienteBusqueda.id_cliente}`, {
+            const response = await fetch(apiUrl + `/pedidos/pedidoscliente/${clienteBusqueda.id_cliente}`, {
                 method: 'POST',
             });
             const data = await response.json();
@@ -487,7 +499,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="nombreUsuarioCliente"
                                         label="Nombre de usuario"
-                                        value={clienteBusqueda.usuario}
+                                        value={clienteModificar ? clienteModificar.usuario : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, usuario: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -508,7 +520,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="correoCliente"
                                         label="Correo electrónico"
-                                        value={clienteBusqueda.correo}
+                                        value={clienteModificar ? clienteModificar.correo : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, correo: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -529,7 +541,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="nombreCliente"
                                         label="Nombre"
-                                        value={clienteBusqueda.nombre}
+                                        value={clienteModificar ? clienteModificar.nombre : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, nombre: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -550,7 +562,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="apellidosCliente"
                                         label="Apellidos"
-                                        value={clienteBusqueda.apellidos}
+                                        value={clienteModificar ? clienteModificar.apellidos : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, apellidos: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -571,7 +583,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="telefonoCliente"
                                         label="Numero de telefono"
-                                        value={clienteBusqueda.telefono}
+                                        value={clienteModificar ? clienteModificar.telefono : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, telefono: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -592,7 +604,7 @@ function BuscarCliente() {
                                     <TextField
                                         id="direccionCliente"
                                         label="Dirección"
-                                        value={clienteBusqueda.direccion}
+                                        value={clienteModificar ? clienteModificar.direccion : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, direccion: e.target.value })}
                                         slotProps={{
                                             input: {
@@ -616,7 +628,7 @@ function BuscarCliente() {
                                     <Select
                                         labelId="sexoClienteLabel"
                                         id="sexoCliente"
-                                        value={clienteBusqueda.sexo}
+                                        value={clienteModificar ? clienteModificar.sexo : ""}
                                         onChange={(e) => setClienteModificar({ ...clienteModificar, sexo: e.target.value })}
                                         variant="standard"
                                         color={colorFondo === '#FFFFFF' ? 'success' : 'default'}

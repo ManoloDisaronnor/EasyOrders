@@ -20,6 +20,7 @@ import ListaClientes from './Pages/ListaClientes'
 import FormularioAltaPedido from './Pages/FormularioAltaPedido'
 import ListaPedidos from './Pages/ListaPedidos'
 import BuscarCliente from './Pages/BuscarCliente'
+import GraficaClientesPedido from './Pages/GraficaClientesPedido'
 
 let router = createBrowserRouter([
   {
@@ -54,6 +55,10 @@ let router = createBrowserRouter([
       {
         path: "/buscarCliente",
         element: <BuscarCliente />
+      },
+      {
+        path: "/graficaPedidos",
+        element: <GraficaClientesPedido />
       }
     ],
   },

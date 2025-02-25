@@ -25,6 +25,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import SendIcon from '@mui/icons-material/Send';
 import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
+import { apiUrl } from "../config";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
     '& .MuiDialogContent-root': {
@@ -82,7 +83,7 @@ function FormularioAltaCliente() {
                         direccion: direccionCliente,
                         sexo: sexo,
                     };
-                    const response = await fetch("http://localhost:3000/api/clientes/altacliente", {
+                    const response = await fetch( apiUrl + "/clientes/altacliente", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",
@@ -161,7 +162,7 @@ function FormularioAltaCliente() {
                     <Grid2 item>
                         <Avatar
                             src={image ? `data:image/*;base64,${image}` : null}
-                            sx={{ width: 300, height: 300 }}
+                            sx={{ objectFit: "contain", minWidth: 200, minHeight: 200 }}
                         />
                     </Grid2>
                     <Grid2 item container justifyContent="center">
