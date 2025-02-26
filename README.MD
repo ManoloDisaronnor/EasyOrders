@@ -57,3 +57,6 @@ db.user: "root",
 db.password: "test",  
 db.name: "EasyOrders",  
 db.port: 3306,
+
+### CONEXION PARA EL DESPLIEGUE DE RAILWAY
+En caso de que mi aplicación este en ese momento online, el enlace para acceder a ella es el siguiente: [https://easyorders-railway-production.up.railway.app](https://easyorders-railway-production.up.railway.app)
