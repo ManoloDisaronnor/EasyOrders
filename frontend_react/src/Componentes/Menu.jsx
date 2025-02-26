@@ -8,13 +8,17 @@ import DarkModeIcon from '@mui/icons-material/DarkMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/img/locoEasyOrders.png';
 
-import '../assets/style/estiloFuenteNavBar.css'
+import '../assets/style/estiloFuenteNavBar.css';
 import AnchorTemporaryDrawer from './SideBar';
 import { useTema } from './TemaProvider';
 import { MDBNavbarBrand } from 'mdb-react-ui-kit';
 
+/**
+ * Main menu component for the application.
+ * @returns {JSX.Element} The rendered component.
+ */
 function MenuApp() {
-    const { temaOscuro, colorFondo, colorTexto, colorIcono, toggleTema } = useTema();
+    const { temaOscuro, colorFondo, colorTexto, colorIcono, toggleTema } = useTema(); // Custom theme context
     const [state, setState] = useState({
         top: false,
         left: false,
@@ -22,6 +26,12 @@ function MenuApp() {
         right: false,
     });
 
+    /**
+     * Toggles the state of the drawer.
+     * @param {string} anchor - The position of the drawer.
+     * @param {boolean} open - Whether the drawer is open or closed.
+     * @returns {function} Event handler function.
+     */
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;

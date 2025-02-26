@@ -1,4 +1,32 @@
-import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Grid2, IconButton, InputAdornment, InputLabel, ListItemIcon, ListItemText, MenuItem, Select, Stack, styled, TextField, Typography } from "@mui/material";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/FormularioAltaPedido.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/FormularioAltaPedido.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box, Button, CircularProgress, Dialog, DialogActions, DialogContent, DialogTitle, Grid2, IconButton, InputAdornment, InputLabel, ListItemIcon, ListItemText, MenuItem, Select, Stack, styled, TextField, Typography } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -20,10 +48,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import { apiUrl } from "../config";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
+    '&amp; .MuiDialogContent-root': {
         padding: theme.spacing(2),
     },
-    '& .MuiDialogActions-root': {
+    '&amp; .MuiDialogActions-root': {
         padding: theme.spacing(1),
     },
 }));
@@ -161,37 +189,37 @@ function FormularioAltaPedido() {
      * Estilos personalizados para los TextField.
      */
     const estilosTextField = {
-        '& .MuiInputLabel-root': {
+        '&amp; .MuiInputLabel-root': {
             color: colorTexto,
         },
-        '& .MuiInput-underline:before': {
+        '&amp; .MuiInput-underline:before': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
-        '& .MuiInput-underline:after': {
+        '&amp; .MuiInput-underline:after': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
     };
 
     return (
-        <Box sx={{ p: 5 }}>
-            <Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
+        &lt;Box sx={{ p: 5 }}>
+            &lt;Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
                 Formulario de alta de pedido
-            </Typography>
-            <Grid2 container spacing={7} sx={{
+            &lt;/Typography>
+            &lt;Grid2 container spacing={7} sx={{
                 padding: 5,
                 border: colorFondo === "#FFFFFF" ? "1px solid #24c55e" : "",
                 boxShadow: 3,
                 borderRadius: 2,
             }}>
-                <Grid2 container spacing={7} item size={{ xs: 12, md: 12, lg: 4 }} sx={{ px: 5, alignItems: "center" }}>
-                    <LocalizationProvider
+                &lt;Grid2 container spacing={7} item size={{ xs: 12, md: 12, lg: 4 }} sx={{ px: 5, alignItems: "center" }}>
+                    &lt;LocalizationProvider
                         dateAdapter={AdapterDayjs}
                         adapterLocale="es" // Asegura el formato español (DD/MM/YYYY)
                         localeText={esES.components.MuiLocalizationProvider.defaultProps.localeText} // Traducir el texto del picker
                     >
-                        <Grid2 item size={{ xs: 12, md: 6, lg: 12 }}>
-                            <DemoContainer components={["DatePicker"]}>
-                                <DatePicker
+                        &lt;Grid2 item size={{ xs: 12, md: 6, lg: 12 }}>
+                            &lt;DemoContainer components={["DatePicker"]}>
+                                &lt;DatePicker
                                     label="Fecha de recogida"
                                     format="DD/MM/YYYY" // Cambia el orden a Día/Mes/Año
                                     sx={estilosTextField}
@@ -206,9 +234,9 @@ function FormularioAltaPedido() {
                                             required: true,
                                             InputProps: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <CalendarMonthIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;CalendarMonthIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -218,11 +246,11 @@ function FormularioAltaPedido() {
                                         },
                                     }}
                                 />
-                            </DemoContainer>
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 6, lg: 12 }}>
-                            <DemoContainer components={["DatePicker"]}>
-                                <DatePicker
+                            &lt;/DemoContainer>
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 6, lg: 12 }}>
+                            &lt;DemoContainer components={["DatePicker"]}>
+                                &lt;DatePicker
                                     label="Fecha de entrega"
                                     format="DD/MM/YYYY" // Cambia el orden a Día/Mes/Año
                                     sx={estilosTextField}
@@ -236,9 +264,9 @@ function FormularioAltaPedido() {
                                             fullWidth: true,
                                             InputProps: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <CalendarMonthIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;CalendarMonthIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -248,14 +276,14 @@ function FormularioAltaPedido() {
                                         },
                                     }}
                                 />
-                            </DemoContainer>
-                        </Grid2>
-                    </LocalizationProvider>
-                </Grid2>
-                <Grid2 container spacing={7} item size={{ xs: 12, md: 12, lg: 8 }} sx={{ px: 5 }}>
-                    <Grid2 item container spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                            &lt;/DemoContainer>
+                        &lt;/Grid2>
+                    &lt;/LocalizationProvider>
+                &lt;/Grid2>
+                &lt;Grid2 container spacing={7} item size={{ xs: 12, md: 12, lg: 8 }} sx={{ px: 5 }}>
+                    &lt;Grid2 item container spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="productoPedido"
                                 label="Producto pedido"
                                 value={productoPedido}
@@ -264,9 +292,9 @@ function FormularioAltaPedido() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <SellIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;SellIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -277,12 +305,12 @@ function FormularioAltaPedido() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <InputLabel id="clientePedidoLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;InputLabel id="clientePedidoLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
                                 Cliente *
-                            </InputLabel>
-                            <Select
+                            &lt;/InputLabel>
+                            &lt;Select
                                 labelId="clientePedidoLabel"
                                 id="clientePedido"
                                 value={clientePedido}
@@ -294,7 +322,7 @@ function FormularioAltaPedido() {
                                 displayEmpty={true}
                                 sx={{
                                     color: colorTexto,
-                                    '& .MuiSelect-icon': {
+                                    '&amp; .MuiSelect-icon': {
                                         color: `${colorTexto} !important`,
                                     },
                                     borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
@@ -304,15 +332,15 @@ function FormularioAltaPedido() {
                                         sx: {
                                             backgroundColor: colorFondo,
                                             color: colorTexto,
-                                            '& .MuiMenuItem-root': {
+                                            '&amp; .MuiMenuItem-root': {
                                                 color: colorTexto,
-                                                '&:hover': {
+                                                '&amp;:hover': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#f5f5f5' : '#333333',
                                                 },
-                                                '&.Mui-selected': {
+                                                '&amp;.Mui-selected': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                 },
-                                                '&.Mui-selected:hover': {
+                                                '&amp;.Mui-selected:hover': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                 },
                                             },
@@ -320,20 +348,20 @@ function FormularioAltaPedido() {
                                     },
                                 }}
                             >
-                                <MenuItem disabled value="">
-                                    <em>Seleccione un cliente</em>
-                                </MenuItem>
+                                &lt;MenuItem disabled value="">
+                                    &lt;em>Seleccione un cliente&lt;/em>
+                                &lt;/MenuItem>
                                 {clientes.map((cliente) => (
-                                    <MenuItem key={cliente.id_cliente} value={cliente.id_cliente}>
-                                        <em>{cliente.nombre}</em>
-                                    </MenuItem>
+                                    &lt;MenuItem key={cliente.id_cliente} value={cliente.id_cliente}>
+                                        &lt;em>{cliente.nombre}&lt;/em>
+                                    &lt;/MenuItem>
                                 ))}
-                            </Select>
-                        </Grid2>
-                    </Grid2>
-                    <Grid2 item container spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                            &lt;/Select>
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                    &lt;Grid2 item container spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="precioProducto"
                                 label="Precio de producto"
                                 value={precioProducto}
@@ -342,9 +370,9 @@ function FormularioAltaPedido() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <LocalAtmIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;LocalAtmIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -355,9 +383,9 @@ function FormularioAltaPedido() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="unidadesProducto"
                                 label="Unidades de producto"
                                 value={unidadesProducto}
@@ -366,9 +394,9 @@ function FormularioAltaPedido() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <AddShoppingCartIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;AddShoppingCartIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -379,13 +407,13 @@ function FormularioAltaPedido() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                    </Grid2>
-                    <Grid2 item spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
-                        <InputLabel id="estadoProductoLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                    &lt;Grid2 item spacing={7} size={{ xs: 12, md: 12, lg: 12 }}>
+                        &lt;InputLabel id="estadoProductoLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
                             Estado del pedido *
-                        </InputLabel>
-                        <Select
+                        &lt;/InputLabel>
+                        &lt;Select
                             labelId="estadoProductoLabel"
                             id="estadoProducto"
                             value={estadoProducto}
@@ -411,7 +439,7 @@ function FormularioAltaPedido() {
                             }}
                             sx={{
                                 color: colorTexto,
-                                '& .MuiSelect-icon': {
+                                '&amp; .MuiSelect-icon': {
                                     color: `${colorTexto} !important`,
                                 },
                                 borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
@@ -421,15 +449,15 @@ function FormularioAltaPedido() {
                                     sx: {
                                         backgroundColor: colorFondo,
                                         color: colorTexto,
-                                        '& .MuiMenuItem-root': {
+                                        '&amp; .MuiMenuItem-root': {
                                             color: colorTexto,
-                                            '&:hover': {
+                                            '&amp;:hover': {
                                                 backgroundColor: colorFondo === '#FFFFFF' ? '#f5f5f5' : '#333333',
                                             },
-                                            '&.Mui-selected': {
+                                            '&amp;.Mui-selected': {
                                                 backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                             },
-                                            '&.Mui-selected:hover': {
+                                            '&amp;.Mui-selected:hover': {
                                                 backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                             },
                                         },
@@ -437,59 +465,59 @@ function FormularioAltaPedido() {
                                 },
                             }}
                         >
-                            <MenuItem disabled value="">
-                                <em style={{ color: colorTexto }}>Seleccione el estado del pedido</em>
-                            </MenuItem>
-                            <MenuItem value="Procesando">
-                                <ListItemIcon>
-                                    <HourglassBottomIcon sx={{ color: "#fa7107" }} />
-                                </ListItemIcon>
-                                <ListItemText sx={{ color: colorTexto }}>Pedido en proceso</ListItemText>
-                            </MenuItem>
-                            <MenuItem value="Pedido">
-                                <ListItemIcon>
-                                    <FactCheckIcon sx={{ color: "#ffee00" }} />
-                                </ListItemIcon>
-                                <ListItemText sx={{ color: colorTexto }}>Pedido procesado</ListItemText>
-                            </MenuItem>
-                            <MenuItem value="Reparto">
-                                <ListItemIcon>
-                                    <LocalShippingIcon sx={{ color: "#002fff" }} />
-                                </ListItemIcon>
-                                <ListItemText sx={{ color: colorTexto }}>En reparto</ListItemText>
-                            </MenuItem>
-                            <MenuItem value="Entregado">
-                                <ListItemIcon>
-                                    <MarkunreadMailboxIcon sx={{ color: "#24c55e" }} />
-                                </ListItemIcon>
-                                <ListItemText sx={{ color: colorTexto }}>Entregado</ListItemText>
-                            </MenuItem>
-                        </Select>
-                    </Grid2>
-                </Grid2>
-                <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", width: "100%", px: 5 }}>
-                    <Typography variant="body2" className="easyOrders" align="right" sx={{ color: colorTexto, textDecoration: "underline" }}>
+                            &lt;MenuItem disabled value="">
+                                &lt;em style={{ color: colorTexto }}>Seleccione el estado del pedido&lt;/em>
+                            &lt;/MenuItem>
+                            &lt;MenuItem value="Procesando">
+                                &lt;ListItemIcon>
+                                    &lt;HourglassBottomIcon sx={{ color: "#fa7107" }} />
+                                &lt;/ListItemIcon>
+                                &lt;ListItemText sx={{ color: colorTexto }}>Pedido en proceso&lt;/ListItemText>
+                            &lt;/MenuItem>
+                            &lt;MenuItem value="Pedido">
+                                &lt;ListItemIcon>
+                                    &lt;FactCheckIcon sx={{ color: "#ffee00" }} />
+                                &lt;/ListItemIcon>
+                                &lt;ListItemText sx={{ color: colorTexto }}>Pedido procesado&lt;/ListItemText>
+                            &lt;/MenuItem>
+                            &lt;MenuItem value="Reparto">
+                                &lt;ListItemIcon>
+                                    &lt;LocalShippingIcon sx={{ color: "#002fff" }} />
+                                &lt;/ListItemIcon>
+                                &lt;ListItemText sx={{ color: colorTexto }}>En reparto&lt;/ListItemText>
+                            &lt;/MenuItem>
+                            &lt;MenuItem value="Entregado">
+                                &lt;ListItemIcon>
+                                    &lt;MarkunreadMailboxIcon sx={{ color: "#24c55e" }} />
+                                &lt;/ListItemIcon>
+                                &lt;ListItemText sx={{ color: colorTexto }}>Entregado&lt;/ListItemText>
+                            &lt;/MenuItem>
+                        &lt;/Select>
+                    &lt;/Grid2>
+                &lt;/Grid2>
+                &lt;Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", width: "100%", px: 5 }}>
+                    &lt;Typography variant="body2" className="easyOrders" align="right" sx={{ color: colorTexto, textDecoration: "underline" }}>
                         Total del pedido: {precioProducto * unidadesProducto} €
-                    </Typography>
-                </Box>
-            </Grid2>
-            <Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
-                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={() => setGuardarPedido(true)} disabled={loadingInsertion}>
-                    {loadingInsertion ? <CircularProgress size="25px" color="white" thickness="5" /> : "Dar de alta"}
-                </Button>
-                <Button variant="contained" color="error" startIcon={<CleaningServicesIcon />} onClick={handleBorrarCampos}>
+                    &lt;/Typography>
+                &lt;/Box>
+            &lt;/Grid2>
+            &lt;Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
+                &lt;Button variant="contained" color="success" startIcon={&lt;SendIcon />} onClick={() => setGuardarPedido(true)} disabled={loadingInsertion}>
+                    {loadingInsertion ? &lt;CircularProgress size="25px" color="white" thickness="5" /> : "Dar de alta"}
+                &lt;/Button>
+                &lt;Button variant="contained" color="error" startIcon={&lt;CleaningServicesIcon />} onClick={handleBorrarCampos}>
                     Borrar campos
-                </Button>
-            </Stack>
-            <BootstrapDialog
+                &lt;/Button>
+            &lt;/Stack>
+            &lt;BootstrapDialog
                 onClose={() => setShowDialog(false)}
                 aria-labelledby="tituloDialogo"
                 open={showDialog}
             >
-                <DialogTitle sx={{ m: 0, p: 2, backgroundColor: colorFondo, color: colorTexto }} id="tituloDialogo">
+                &lt;DialogTitle sx={{ m: 0, p: 2, backgroundColor: colorFondo, color: colorTexto }} id="tituloDialogo">
                     INFORMACIÓN DE LA OPERACIÓN
-                </DialogTitle>
-                <IconButton
+                &lt;/DialogTitle>
+                &lt;IconButton
                     aria-label="close"
                     onClick={() => setShowDialog(false)}
                     sx={(theme) => ({
@@ -499,21 +527,43 @@ function FormularioAltaPedido() {
                         color: theme.palette.grey[500],
                     })}
                 >
-                    <CloseIcon sx={{ color: colorIcono }} />
-                </IconButton>
-                <DialogContent sx={{ backgroundColor: colorFondo }} dividers>
-                    <Typography gutterBottom sx={{ color: colorTexto }} >
+                    &lt;CloseIcon sx={{ color: colorIcono }} />
+                &lt;/IconButton>
+                &lt;DialogContent sx={{ backgroundColor: colorFondo }} dividers>
+                    &lt;Typography gutterBottom sx={{ color: colorTexto }} >
                         {error}
-                    </Typography>
-                </DialogContent>
-                <DialogActions sx={{ backgroundColor: colorFondo }}>
-                    <Button autoFocus onClick={() => setShowDialog(false)} color="success" >
+                    &lt;/Typography>
+                &lt;/DialogContent>
+                &lt;DialogActions sx={{ backgroundColor: colorFondo }}>
+                    &lt;Button autoFocus onClick={() => setShowDialog(false)} color="success" >
                         Aceptar
-                    </Button>
-                </DialogActions>
-            </BootstrapDialog>
-        </Box>
+                    &lt;/Button>
+                &lt;/DialogActions>
+            &lt;/BootstrapDialog>
+        &lt;/Box>
     );
 }
 
-export default FormularioAltaPedido;
+export default FormularioAltaPedido;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BuscarCliente">BuscarCliente</a></li><li><a href="global.html#FormularioAltaCliente">FormularioAltaCliente</a></li><li><a href="global.html#FormularioAltaPedido">FormularioAltaPedido</a></li><li><a href="global.html#ListaClientes">ListaClientes</a></li><li><a href="global.html#ListaPedidos">ListaPedidos</a></li><li><a href="global.html#MenuApp">MenuApp</a></li><li><a href="global.html#RutaNotFound">RutaNotFound</a></li><li><a href="global.html#TemaContext">TemaContext</a></li><li><a href="global.html#TemaProvider">TemaProvider</a></li><li><a href="global.html#apiUrl">apiUrl</a></li><li><a href="global.html#appTitle">appTitle</a></li><li><a href="global.html#generatePDF">generatePDF</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#useTema">useTema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 26 2025 10:27:34 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

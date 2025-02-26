@@ -13,8 +13,18 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import { Link, Typography } from '@mui/material';
 
+/**
+ * Componente para la barra lateral de navegación.
+ * @param {Object} props - Las propiedades del componente.
+ * @returns {JSX.Element} El componente de la barra lateral.
+ */
 export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo, colorTexto, colorIcono }) {
 
+    /**
+     * Genera la lista de elementos de la barra lateral.
+     * @param {string} anchor - La posición de la barra lateral.
+     * @returns {JSX.Element} La lista de elementos de la barra lateral.
+     */
     const list = (anchor) => (
         <Box
             sx={{ width: 325, backgroundColor: colorFondo, height: "100vh" }}
@@ -50,7 +60,7 @@ export default function AnchorTemporaryDrawer({ state, toggleDrawer, colorFondo,
                             to={index === 0 ? "/altaPedido" : index === 1 ? "/listaPedidos" : "/graficaPedidos"}
                             onClick={(e) => e.stopPropagation()}>
                             <ListItemIcon sx={{ color: colorIcono }}>
-                                { index === 0 ? <AddShoppingCartIcon /> : index === 1 ? <ShoppingCartCheckoutIcon /> : <ShoppingCartCheckoutIcon /> }
+                                {index === 0 ? <AddShoppingCartIcon /> : index === 1 ? <ShoppingCartCheckoutIcon /> : <ShoppingCartCheckoutIcon />}
                             </ListItemIcon>
                             <ListItemText primary={text} sx={{ color: colorTexto }} />
                         </ListItemButton>

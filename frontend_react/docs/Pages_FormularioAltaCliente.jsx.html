@@ -1,4 +1,32 @@
-import { Box, Typography, Button, Avatar, Stack, Grid2, TextField, InputAdornment, IconButton, MenuItem, Select, InputLabel, ListItemIcon, ListItemText, CircularProgress } from "@mui/material";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/FormularioAltaCliente.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/FormularioAltaCliente.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Box, Typography, Button, Avatar, Stack, Grid2, TextField, InputAdornment, IconButton, MenuItem, Select, InputLabel, ListItemIcon, ListItemText, CircularProgress } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -28,10 +56,10 @@ import CleaningServicesIcon from '@mui/icons-material/CleaningServices';
 import { apiUrl } from "../config";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-    '& .MuiDialogContent-root': {
+    '&amp; .MuiDialogContent-root': {
         padding: theme.spacing(2),
     },
-    '& .MuiDialogActions-root': {
+    '&amp; .MuiDialogActions-root': {
         padding: theme.spacing(1),
     },
 }));
@@ -61,13 +89,13 @@ function FormularioAltaCliente() {
      * Estilos personalizados para los TextField.
      */
     const estilosTextField = {
-        '& .MuiInputLabel-root': {
+        '&amp; .MuiInputLabel-root': {
             color: colorTexto,
         },
-        '& .MuiInput-underline:before': {
+        '&amp; .MuiInput-underline:before': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
-        '& .MuiInput-underline:after': {
+        '&amp; .MuiInput-underline:after': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
     };
@@ -171,11 +199,11 @@ function FormularioAltaCliente() {
     };
 
     return (
-        <Box sx={{ p: 5 }}>
-            <Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
+        &lt;Box sx={{ p: 5 }}>
+            &lt;Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
                 Formulario de alta de cliente
-            </Typography>
-            <Grid2 item container direction="row" spacing={5} sx={
+            &lt;/Typography>
+            &lt;Grid2 item container direction="row" spacing={5} sx={
                 {
                     padding: 5,
                     border: colorFondo === "#FFFFFF" ? "1px solid #24c55e" : "",
@@ -183,47 +211,47 @@ function FormularioAltaCliente() {
                     borderRadius: 2,
                 }
             }>
-                <Grid2 item size={{ xs: 12, md: 12, lg: 4 }} container direction="column" justifyContent="center" alignItems="center">
-                    <Grid2 item>
-                        <Avatar
+                &lt;Grid2 item size={{ xs: 12, md: 12, lg: 4 }} container direction="column" justifyContent="center" alignItems="center">
+                    &lt;Grid2 item>
+                        &lt;Avatar
                             src={image ? `data:image/*;base64,${image}` : null}
                             sx={{ objectFit: "contain", minWidth: 200, minHeight: 200 }}
                         />
-                    </Grid2>
-                    <Grid2 item container justifyContent="center">
-                        <Stack direction="row" spacing={2}>
-                            <input
+                    &lt;/Grid2>
+                    &lt;Grid2 item container justifyContent="center">
+                        &lt;Stack direction="row" spacing={2}>
+                            &lt;input
                                 accept="image/*"
                                 id="upload-image"
                                 type="file"
                                 style={{ display: "none" }}
                                 onChange={handleImageChange}
                             />
-                            <label htmlFor="upload-image">
-                                <Button
+                            &lt;label htmlFor="upload-image">
+                                &lt;Button
                                     variant="contained"
                                     component="span"
-                                    startIcon={<CloudUploadIcon />}
+                                    startIcon={&lt;CloudUploadIcon />}
                                     color="success"
                                 >
                                     Subir Imagen
-                                </Button>
-                            </label>
-                            <Button
+                                &lt;/Button>
+                            &lt;/label>
+                            &lt;Button
                                 variant="contained"
-                                startIcon={<FolderDeleteIcon />}
+                                startIcon={&lt;FolderDeleteIcon />}
                                 color="error"
                                 onClick={handleImageRemove}
                             >
                                 Borrar Imagen
-                            </Button>
-                        </Stack>
-                    </Grid2>
-                </Grid2>
-                <Grid2 item size={{ xs: 12, md: 12, lg: 8 }} container direction="column" spacing={7}>
-                    <Grid2 item container direction="row" spacing={7}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                            &lt;/Button>
+                        &lt;/Stack>
+                    &lt;/Grid2>
+                &lt;/Grid2>
+                &lt;Grid2 item size={{ xs: 12, md: 12, lg: 8 }} container direction="column" spacing={7}>
+                    &lt;Grid2 item container direction="row" spacing={7}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="nombreUsuarioCliente"
                                 label="Nombre de usuario"
                                 value={nombreUsuarioCliente}
@@ -231,9 +259,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <AccountCircle sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;AccountCircle sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -244,9 +272,9 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="correoCliente"
                                 label="Correo electrónico"
                                 value={correoCliente}
@@ -254,9 +282,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <ContactMailIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;ContactMailIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -267,11 +295,11 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                    </Grid2>
-                    <Grid2 item container direction="row" spacing={7}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                    &lt;Grid2 item container direction="row" spacing={7}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="nombreCliente"
                                 label="Nombre"
                                 value={nombreCliente}
@@ -279,9 +307,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <BadgeIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;BadgeIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -292,9 +320,9 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="apellidosCliente"
                                 label="Apellidos"
                                 value={apellidosCliente}
@@ -302,9 +330,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <AssignmentIndIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;AssignmentIndIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -315,11 +343,11 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                    </Grid2>
-                    <Grid2 item container direction="row" spacing={7}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                    &lt;Grid2 item container direction="row" spacing={7}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="telefonoCliente"
                                 label="Numero de telefono"
                                 value={telefonoCliente}
@@ -327,9 +355,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <ContactPhoneIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;ContactPhoneIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -340,9 +368,9 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="contrasenyaCliente"
                                 label="Contraseña"
                                 value={contrasenyaCliente}
@@ -350,18 +378,18 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <KeyIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;KeyIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         endAdornment: (
-                                            <InputAdornment position="end">
-                                                <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.1 }}>
-                                                    <IconButton onClick={() => setShowPasswd(!showPasswd)} edge="end" sx={{ color: colorIcono }}>
-                                                        {showPasswd ? <VisibilityOffIcon /> : <VisibilityIcon />}
-                                                    </IconButton>
-                                                </motion.div>
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="end">
+                                                &lt;motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.1 }}>
+                                                    &lt;IconButton onClick={() => setShowPasswd(!showPasswd)} edge="end" sx={{ color: colorIcono }}>
+                                                        {showPasswd ? &lt;VisibilityOffIcon /> : &lt;VisibilityIcon />}
+                                                    &lt;/IconButton>
+                                                &lt;/motion.div>
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -373,11 +401,11 @@ function FormularioAltaCliente() {
                                 type={showPasswd ? "text" : "password"}
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                    </Grid2>
-                    <Grid2 item container direction="row" spacing={7}>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <TextField
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                    &lt;Grid2 item container direction="row" spacing={7}>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;TextField
                                 id="direccionCliente"
                                 label="Dirección"
                                 value={direccionCliente}
@@ -385,9 +413,9 @@ function FormularioAltaCliente() {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start">
-                                                <FmdGoodIcon sx={{ color: colorIcono }} />
-                                            </InputAdornment>
+                                            &lt;InputAdornment position="start">
+                                                &lt;FmdGoodIcon sx={{ color: colorIcono }} />
+                                            &lt;/InputAdornment>
                                         ),
                                         sx: { color: colorTexto }
                                     },
@@ -398,12 +426,12 @@ function FormularioAltaCliente() {
                                 fullWidth
                                 sx={estilosTextField}
                             />
-                        </Grid2>
-                        <Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
-                            <InputLabel id="sexoClienteLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
+                        &lt;/Grid2>
+                        &lt;Grid2 item size={{ xs: 12, md: 12, lg: 6 }}>
+                            &lt;InputLabel id="sexoClienteLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
                                 Sexo
-                            </InputLabel>
-                            <Select
+                            &lt;/InputLabel>
+                            &lt;Select
                                 labelId="sexoClienteLabel"
                                 id="sexoCliente"
                                 value={sexo}
@@ -426,7 +454,7 @@ function FormularioAltaCliente() {
                                 }}
                                 sx={{
                                     color: colorTexto,
-                                    '& .MuiSelect-icon': {
+                                    '&amp; .MuiSelect-icon': {
                                         color: `${colorTexto} !important`,
                                     },
                                     borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
@@ -436,15 +464,15 @@ function FormularioAltaCliente() {
                                         sx: {
                                             backgroundColor: colorFondo,
                                             color: colorTexto,
-                                            '& .MuiMenuItem-root': {
+                                            '&amp; .MuiMenuItem-root': {
                                                 color: colorTexto,
-                                                '&:hover': {
+                                                '&amp;:hover': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#f5f5f5' : '#333333',
                                                 },
-                                                '&.Mui-selected': {
+                                                '&amp;.Mui-selected': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                 },
-                                                '&.Mui-selected:hover': {
+                                                '&amp;.Mui-selected:hover': {
                                                     backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                 },
                                             },
@@ -452,49 +480,49 @@ function FormularioAltaCliente() {
                                     },
                                 }}
                             >
-                                <MenuItem disabled value="">
-                                    <em style={{ color: colorTexto }}>Seleccione su género</em>
-                                </MenuItem>
-                                <MenuItem value="H">
-                                    <ListItemIcon>
-                                        <Male sx={{ color: "#006bf7" }} />
-                                    </ListItemIcon>
-                                    <ListItemText>Hombre</ListItemText>
-                                </MenuItem>
-                                <MenuItem value="M">
-                                    <ListItemIcon>
-                                        <Female sx={{ color: "#f70067" }} />
-                                    </ListItemIcon>
-                                    <ListItemText>Mujer</ListItemText>
-                                </MenuItem>
-                                <MenuItem value="N">
-                                    <ListItemIcon>
-                                        <TransgenderIcon sx={{ color: "#a500f7" }} />
-                                    </ListItemIcon>
-                                    <ListItemText>No especificar</ListItemText>
-                                </MenuItem>
-                            </Select>
-                        </Grid2>
-                    </Grid2>
-                </Grid2>
-            </Grid2>
-            <Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
-                <Button variant="contained" color="success" startIcon={<SendIcon />} onClick={() => setGuardarCliente(true)} disabled={loadingInsertion}>
-                    {loadingInsertion ? <CircularProgress size="25px" color="white" thickness="5" /> : "Dar de alta"}
-                </Button>
-                <Button variant="contained" color="error" startIcon={<CleaningServicesIcon />} onClick={handleBorrarCampos}>
+                                &lt;MenuItem disabled value="">
+                                    &lt;em style={{ color: colorTexto }}>Seleccione su género&lt;/em>
+                                &lt;/MenuItem>
+                                &lt;MenuItem value="H">
+                                    &lt;ListItemIcon>
+                                        &lt;Male sx={{ color: "#006bf7" }} />
+                                    &lt;/ListItemIcon>
+                                    &lt;ListItemText>Hombre&lt;/ListItemText>
+                                &lt;/MenuItem>
+                                &lt;MenuItem value="M">
+                                    &lt;ListItemIcon>
+                                        &lt;Female sx={{ color: "#f70067" }} />
+                                    &lt;/ListItemIcon>
+                                    &lt;ListItemText>Mujer&lt;/ListItemText>
+                                &lt;/MenuItem>
+                                &lt;MenuItem value="N">
+                                    &lt;ListItemIcon>
+                                        &lt;TransgenderIcon sx={{ color: "#a500f7" }} />
+                                    &lt;/ListItemIcon>
+                                    &lt;ListItemText>No especificar&lt;/ListItemText>
+                                &lt;/MenuItem>
+                            &lt;/Select>
+                        &lt;/Grid2>
+                    &lt;/Grid2>
+                &lt;/Grid2>
+            &lt;/Grid2>
+            &lt;Stack spacing={5} direction="row" sx={{ display: "flex", justifyContent: "center", marginTop: 5 }}>
+                &lt;Button variant="contained" color="success" startIcon={&lt;SendIcon />} onClick={() => setGuardarCliente(true)} disabled={loadingInsertion}>
+                    {loadingInsertion ? &lt;CircularProgress size="25px" color="white" thickness="5" /> : "Dar de alta"}
+                &lt;/Button>
+                &lt;Button variant="contained" color="error" startIcon={&lt;CleaningServicesIcon />} onClick={handleBorrarCampos}>
                     Borrar campos
-                </Button>
-            </Stack>
-            <BootstrapDialog
+                &lt;/Button>
+            &lt;/Stack>
+            &lt;BootstrapDialog
                 onClose={() => setShowDialog(false)}
                 aria-labelledby="tituloDialogo"
                 open={showDialog}
             >
-                <DialogTitle sx={{ m: 0, p: 2, backgroundColor: colorFondo, color: colorTexto }} id="tituloDialogo">
+                &lt;DialogTitle sx={{ m: 0, p: 2, backgroundColor: colorFondo, color: colorTexto }} id="tituloDialogo">
                     INFORMACIÓN DE LA OPERACIÓN
-                </DialogTitle>
-                <IconButton
+                &lt;/DialogTitle>
+                &lt;IconButton
                     aria-label="close"
                     onClick={() => setShowDialog(false)}
                     sx={(theme) => ({
@@ -504,21 +532,43 @@ function FormularioAltaCliente() {
                         color: theme.palette.grey[500],
                     })}
                 >
-                    <CloseIcon sx={{ color: colorIcono }} />
-                </IconButton>
-                <DialogContent sx={{ backgroundColor: colorFondo }} dividers>
-                    <Typography gutterBottom sx={{ color: colorTexto }} >
+                    &lt;CloseIcon sx={{ color: colorIcono }} />
+                &lt;/IconButton>
+                &lt;DialogContent sx={{ backgroundColor: colorFondo }} dividers>
+                    &lt;Typography gutterBottom sx={{ color: colorTexto }} >
                         {mensajeDialog}
-                    </Typography>
-                </DialogContent>
-                <DialogActions sx={{ backgroundColor: colorFondo }}>
-                    <Button autoFocus onClick={() => setShowDialog(false)} color="success" >
+                    &lt;/Typography>
+                &lt;/DialogContent>
+                &lt;DialogActions sx={{ backgroundColor: colorFondo }}>
+                    &lt;Button autoFocus onClick={() => setShowDialog(false)} color="success" >
                         Aceptar
-                    </Button>
-                </DialogActions>
-            </BootstrapDialog>
-        </Box>
+                    &lt;/Button>
+                &lt;/DialogActions>
+            &lt;/BootstrapDialog>
+        &lt;/Box>
     );
 }
 
-export default FormularioAltaCliente;
+export default FormularioAltaCliente;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BuscarCliente">BuscarCliente</a></li><li><a href="global.html#FormularioAltaCliente">FormularioAltaCliente</a></li><li><a href="global.html#FormularioAltaPedido">FormularioAltaPedido</a></li><li><a href="global.html#ListaClientes">ListaClientes</a></li><li><a href="global.html#ListaPedidos">ListaPedidos</a></li><li><a href="global.html#MenuApp">MenuApp</a></li><li><a href="global.html#RutaNotFound">RutaNotFound</a></li><li><a href="global.html#TemaContext">TemaContext</a></li><li><a href="global.html#TemaProvider">TemaProvider</a></li><li><a href="global.html#apiUrl">apiUrl</a></li><li><a href="global.html#appTitle">appTitle</a></li><li><a href="global.html#generatePDF">generatePDF</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#useTema">useTema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 26 2025 10:27:34 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

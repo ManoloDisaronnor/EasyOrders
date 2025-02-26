@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Componentes/Menu.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Componentes/Menu.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from 'react';
+import { Outlet } from 'react-router';
+import { Box, IconButton, Typography } from "@mui/material";
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import LightModeIcon from '@mui/icons-material/LightMode';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+import MenuIcon from '@mui/icons-material/Menu';
+import logo from '../assets/img/locoEasyOrders.png';
+
+import '../assets/style/estiloFuenteNavBar.css';
+import AnchorTemporaryDrawer from './SideBar';
+import { useTema } from './TemaProvider';
+import { MDBNavbarBrand } from 'mdb-react-ui-kit';
+
+/**
+ * Main menu component for the application.
+ * @returns {JSX.Element} The rendered component.
+ */
+function MenuApp() {
+    const { temaOscuro, colorFondo, colorTexto, colorIcono, toggleTema } = useTema(); // Custom theme context
+    const [state, setState] = useState({
+        top: false,
+        left: false,
+        bottom: false,
+        right: false,
+    });
+
+    /**
+     * Toggles the state of the drawer.
+     * @param {string} anchor - The position of the drawer.
+     * @param {boolean} open - Whether the drawer is open or closed.
+     * @returns {function} Event handler function.
+     */
+    const toggleDrawer = (anchor, open) => (event) => {
+        if (event.type === 'keydown' &amp;&amp; (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        setState({ ...state, [anchor]: open });
+    };
+
+    return (
+        &lt;>
+            &lt;Box sx={{
+                display: "flex",
+                flexDirection: "column",
+                minHeight: "100vh" // Aplica el 100vh aquí en el contenedor padre
+            }}>
+                &lt;Box sx={{ flexShrink: 0 }}> {/* Contenedor del AppBar (no crecerá) */}
+                    &lt;AppBar position="static" sx={{ backgroundColor: colorFondo, padding: 2, borderBottom: '4px solid #24c55e' }}>
+                        &lt;Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                            &lt;Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                &lt;div>
+                                    &lt;IconButton
+                                        size="large"
+                                        edge="start"
+                                        color="inherit"
+                                        aria-label="menu"
+                                        sx={{ mr: 2 }}
+                                        onClick={toggleDrawer("left", true)}
+                                    >
+                                        &lt;MenuIcon sx={{ color: colorIcono }} />
+                                    &lt;/IconButton>
+                                &lt;/div>
+                                &lt;MDBNavbarBrand href='/' className="ms-3">
+                                    &lt;img
+                                        src={logo}
+                                        height='70'
+                                        alt='logo'
+                                        loading='lazy'
+                                        className="me-4"
+                                    />
+                                    &lt;Typography variant="h3" className="easyOrders fs-2" sx={{ color: colorTexto }}>
+                                        EasyOrders
+                                    &lt;/Typography>
+                                &lt;/MDBNavbarBrand>
+                            &lt;/Box>
+                            &lt;IconButton
+                                onClick={toggleTema}
+                                size="large"
+                                sx={{ transition: 'transform 0.5s ease-in-out' }}
+                            >
+                                &lt;Box
+                                    sx={{
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        transition: 'transform 0.3s ease-in-out',
+                                        transform: temaOscuro ? 'rotate(360deg)' : 'rotate(0deg)',
+                                    }}
+                                >
+                                    {temaOscuro ? (
+                                        &lt;DarkModeIcon sx={{ color: '#FFFFFF', fontSize: 28 }} />
+                                    ) : (
+                                        &lt;LightModeIcon sx={{ color: '#24c55e', fontSize: 28 }} />
+                                    )}
+                                &lt;/Box>
+                            &lt;/IconButton>
+                        &lt;/Toolbar>
+                    &lt;/AppBar>
+                &lt;/Box>
+                &lt;AnchorTemporaryDrawer state={state} toggleDrawer={toggleDrawer} colorFondo={colorFondo} colorTexto={colorTexto} colorIcono={colorIcono} />
+                &lt;Box sx={{
+                    backgroundColor: colorFondo,
+                    flex: 1,
+                    boxSizing: "border-box"
+                }}>
+                    &lt;Outlet /> {/* Contenido de la ruta */}
+                &lt;/Box>
+                &lt;footer>
+                    &lt;Box sx={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: 2,
+                        backgroundColor: colorFondo,
+                        color: colorTexto,
+                        borderTop: '4px solid #24c55e'
+                    }}>
+                        &lt;Typography variant="body1">
+                            &amp;copy; 2025 EasyOrders. Todos los derechos reservados.
+                        &lt;/Typography>
+                    &lt;/Box>
+                &lt;/footer>
+            &lt;/Box>
+        &lt;/>
+    );
+}
+
+export default function App() {
+    return (
+        &lt;MenuApp />
+    );
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BuscarCliente">BuscarCliente</a></li><li><a href="global.html#FormularioAltaCliente">FormularioAltaCliente</a></li><li><a href="global.html#FormularioAltaPedido">FormularioAltaPedido</a></li><li><a href="global.html#ListaClientes">ListaClientes</a></li><li><a href="global.html#ListaPedidos">ListaPedidos</a></li><li><a href="global.html#MenuApp">MenuApp</a></li><li><a href="global.html#RutaNotFound">RutaNotFound</a></li><li><a href="global.html#TemaContext">TemaContext</a></li><li><a href="global.html#TemaProvider">TemaProvider</a></li><li><a href="global.html#apiUrl">apiUrl</a></li><li><a href="global.html#appTitle">appTitle</a></li><li><a href="global.html#generatePDF">generatePDF</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#useTema">useTema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 26 2025 10:27:34 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

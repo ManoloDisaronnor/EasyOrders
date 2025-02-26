@@ -1,3 +1,7 @@
+/**
+ * Main application component.
+ * @returns {JSX.Element} The rendered component.
+ */
 function App() {
   return (
     <>
@@ -6,4 +10,4 @@ function App() {
   );
 }
 
-export default App
+export default App;

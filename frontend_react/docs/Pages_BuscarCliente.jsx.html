@@ -1,4 +1,32 @@
-import { Avatar, Box, Button, Card, CardContent, CardMedia, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid2, IconButton, InputAdornment, InputBase, InputLabel, ListItemIcon, ListItemText, MenuItem, Paper, Select, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TablePagination, TableRow, TextField, Tooltip, Typography, useTheme } from "@mui/material";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Pages/BuscarCliente.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Pages/BuscarCliente.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Avatar, Box, Button, Card, CardContent, CardMedia, CircularProgress, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Grid2, IconButton, InputAdornment, InputBase, InputLabel, ListItemIcon, ListItemText, MenuItem, Paper, Select, Stack, Table, TableBody, TableCell, TableContainer, TableFooter, TablePagination, TableRow, TextField, Tooltip, Typography, useTheme } from "@mui/material";
 import { useTema } from "../Componentes/TemaProvider";
 import { motion } from "framer-motion";
 import SearchIcon from '@mui/icons-material/Search';
@@ -55,13 +83,13 @@ function BuscarCliente() {
      * Estilos personalizados para los TextField.
      */
     const estilosTextField = {
-        '& .MuiInputLabel-root': {
+        '&amp; .MuiInputLabel-root': {
             color: colorTexto,
         },
-        '& .MuiInput-underline:before': {
+        '&amp; .MuiInput-underline:before': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
-        '& .MuiInput-underline:after': {
+        '&amp; .MuiInput-underline:after': {
             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
         },
         marginBottom: 2
@@ -73,14 +101,14 @@ function BuscarCliente() {
      */
     const HoverImage = () => {
         return (
-            <Box
+            &lt;Box
                 sx={{
                     position: 'relative',
                     // Al hacer hover en este contenedor, los botones (que tienen clase "hover-buttons") se muestran
-                    '&:hover .hover-buttons': { opacity: 1 },
+                    '&amp;:hover .hover-buttons': { opacity: 1 },
                 }}
             >
-                <CardMedia
+                &lt;CardMedia
                     component="img"
                     alt={clienteBusqueda.nombre}
                     height="400"
@@ -90,7 +118,7 @@ function BuscarCliente() {
                             : "/static/images/ImagenPerfilPorDefecto.png"
                     }
                 />
-                <Box
+                &lt;Box
                     className="hover-buttons"
                     sx={{
                         position: 'absolute',
@@ -103,23 +131,23 @@ function BuscarCliente() {
                         transition: 'opacity 0.3s',
                     }}
                 >
-                    <Tooltip title="Editar cliente" placement="left">
-                        <IconButton sx={{ backgroundColor: colorFondo }} onClick={handleMostrarDialogoModificar}>
-                            <EditIcon sx={{ color: colorIcono }} />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Eliminar cliente" placement="left" onClick={handleMostrarDialogoBorrar}>
-                        <IconButton sx={{ backgroundColor: colorFondo }}>
-                            <DeleteIcon sx={{ color: colorIcono }} />
-                        </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Ver pedidos asociados" placement="left" onClick={handleMostrarDialogoPedidos}>
-                        <IconButton sx={{ backgroundColor: colorFondo }}>
-                            <ShoppingCartCheckoutIcon sx={{ color: colorIcono }} />
-                        </IconButton>
-                    </Tooltip>
-                </Box>
-            </Box>
+                    &lt;Tooltip title="Editar cliente" placement="left">
+                        &lt;IconButton sx={{ backgroundColor: colorFondo }} onClick={handleMostrarDialogoModificar}>
+                            &lt;EditIcon sx={{ color: colorIcono }} />
+                        &lt;/IconButton>
+                    &lt;/Tooltip>
+                    &lt;Tooltip title="Eliminar cliente" placement="left" onClick={handleMostrarDialogoBorrar}>
+                        &lt;IconButton sx={{ backgroundColor: colorFondo }}>
+                            &lt;DeleteIcon sx={{ color: colorIcono }} />
+                        &lt;/IconButton>
+                    &lt;/Tooltip>
+                    &lt;Tooltip title="Ver pedidos asociados" placement="left" onClick={handleMostrarDialogoPedidos}>
+                        &lt;IconButton sx={{ backgroundColor: colorFondo }}>
+                            &lt;ShoppingCartCheckoutIcon sx={{ color: colorIcono }} />
+                        &lt;/IconButton>
+                    &lt;/Tooltip>
+                &lt;/Box>
+            &lt;/Box>
         );
     };
 
@@ -137,9 +165,9 @@ function BuscarCliente() {
      */
     const getIcono = () => {
         switch (clienteBusqueda.sexo) {
-            case "H": return <Male sx={{ color: "#006bf7" }} />;
-            case "M": return <Female sx={{ color: "#f70067" }} />;
-            default: return <TransgenderIcon sx={{ color: "#a500f7" }} />;
+            case "H": return &lt;Male sx={{ color: "#006bf7" }} />;
+            case "M": return &lt;Female sx={{ color: "#f70067" }} />;
+            default: return &lt;TransgenderIcon sx={{ color: "#a500f7" }} />;
         }
     };
 
@@ -249,36 +277,36 @@ function BuscarCliente() {
         };
 
         return (
-            <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-                <IconButton
+            &lt;Box sx={{ flexShrink: 0, ml: 2.5 }}>
+                &lt;IconButton
                     onClick={handleFirstPageButtonClick}
                     disabled={page === 0}
                     aria-label="first page"
                 >
-                    {theme.direction === 'rtl' ? <LastPageIcon sx={{ color: colorIcono }} /> : <FirstPageIcon sx={{ color: colorIcono }} />}
-                </IconButton>
-                <IconButton
+                    {theme.direction === 'rtl' ? &lt;LastPageIcon sx={{ color: colorIcono }} /> : &lt;FirstPageIcon sx={{ color: colorIcono }} />}
+                &lt;/IconButton>
+                &lt;IconButton
                     onClick={handleBackButtonClick}
                     disabled={page === 0}
                     aria-label="previous page"
                 >
-                    {theme.direction === 'rtl' ? <KeyboardArrowRight sx={{ color: colorIcono }} /> : <KeyboardArrowLeft sx={{ color: colorIcono }} />}
-                </IconButton>
-                <IconButton
+                    {theme.direction === 'rtl' ? &lt;KeyboardArrowRight sx={{ color: colorIcono }} /> : &lt;KeyboardArrowLeft sx={{ color: colorIcono }} />}
+                &lt;/IconButton>
+                &lt;IconButton
                     onClick={handleNextButtonClick}
                     disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                     aria-label="next page"
                 >
-                    {theme.direction === 'rtl' ? <KeyboardArrowLeft sx={{ color: colorIcono }} /> : <KeyboardArrowRight sx={{ color: colorIcono }} />}
-                </IconButton>
-                <IconButton
+                    {theme.direction === 'rtl' ? &lt;KeyboardArrowLeft sx={{ color: colorIcono }} /> : &lt;KeyboardArrowRight sx={{ color: colorIcono }} />}
+                &lt;/IconButton>
+                &lt;IconButton
                     onClick={handleLastPageButtonClick}
                     disabled={page >= Math.ceil(count / rowsPerPage) - 1}
                     aria-label="last page"
                 >
-                    {theme.direction === 'rtl' ? <FirstPageIcon sx={{ color: colorIcono }} /> : <LastPageIcon sx={{ color: colorIcono }} />}
-                </IconButton>
-            </Box>
+                    {theme.direction === 'rtl' ? &lt;FirstPageIcon sx={{ color: colorIcono }} /> : &lt;LastPageIcon sx={{ color: colorIcono }} />}
+                &lt;/IconButton>
+            &lt;/Box>
         );
     }
 
@@ -428,12 +456,12 @@ function BuscarCliente() {
     }
 
     return (
-        <Box sx={{ p: 5 }}>
-            <Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
+        &lt;Box sx={{ p: 5 }}>
+            &lt;Typography variant="h2" className="easyOrders" align="center" sx={{ color: colorTexto, marginBottom: 5, fontSize: "3em" }}>
                 Buscar un cliente por nombre de usuario
-            </Typography>
-            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <Paper
+            &lt;/Typography>
+            &lt;Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                &lt;Paper
                     component="form"
                     sx={{
                         p: '2px 4px',
@@ -447,106 +475,106 @@ function BuscarCliente() {
                     }}
                     onSubmit={handleSearch}
                 >
-                    <InputBase
+                    &lt;InputBase
                         sx={{ ml: 1, flex: 1, color: colorTexto }}
                         placeholder="Nombre de usuario del cliente"
                         inputProps={{ 'aria-label': 'buscarCliente' }}
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
                     />
-                    <IconButton type="button" sx={{ p: '10px' }} aria-label="buscar" onClick={handleSearch}>
-                        <SearchIcon sx={{ color: colorIcono }} />
-                    </IconButton>
-                </Paper>
-            </Box>
+                    &lt;IconButton type="button" sx={{ p: '10px' }} aria-label="buscar" onClick={handleSearch}>
+                        &lt;SearchIcon sx={{ color: colorIcono }} />
+                    &lt;/IconButton>
+                &lt;/Paper>
+            &lt;/Box>
             {
                 clienteBusqueda !== null ?
                     loadingSearch ?
-                        <CircularProgress color={colorFondo === "#FFFFFF" ? "success" : "white"} size={65} sx={{ display: "block", margin: "auto" }} />
+                        &lt;CircularProgress color={colorFondo === "#FFFFFF" ? "success" : "white"} size={65} sx={{ display: "block", margin: "auto" }} />
                         :
-                        <>
-                            <Grid2 container spacing={2} sx={{ marginTop: 10, borderLeft: "5px solid #24c55e" }}>
-                                <Grid2 item size={{ xs: 12, sm: 12, md: 5, lg: 4 }}>
-                                    <HoverImage />
-                                </Grid2>
-                                <Grid2 item size={{ xs: 12, sm: 12, md: 5, lg: 4 }} sx={{ pl: 3 }}>
-                                    <motion.div initial="hidden" animate="visible" variants={itemVariants}>
-                                        <Typography
+                        &lt;>
+                            &lt;Grid2 container spacing={2} sx={{ marginTop: 10, borderLeft: "5px solid #24c55e" }}>
+                                &lt;Grid2 item size={{ xs: 12, sm: 12, md: 5, lg: 4 }}>
+                                    &lt;HoverImage />
+                                &lt;/Grid2>
+                                &lt;Grid2 item size={{ xs: 12, sm: 12, md: 5, lg: 4 }} sx={{ pl: 3 }}>
+                                    &lt;motion.div initial="hidden" animate="visible" variants={itemVariants}>
+                                        &lt;Typography
                                             gutterBottom
                                             variant="h4"
                                             component="div"
                                             sx={{ color: colorTexto, marginBottom: 3, fontSize: "2.7em" }}
                                         >
                                             {clienteBusqueda.nombre + " " + clienteBusqueda.apellidos} {getIcono()}
-                                        </Typography>
-                                    </motion.div>
+                                        &lt;/Typography>
+                                    &lt;/motion.div>
                                     {[
-                                        { icon: <PersonIcon sx={{ color: colorIcono }} />, label: "Nombre de usuario", value: clienteBusqueda.usuario },
-                                        { icon: <EmailIcon sx={{ color: colorIcono }} />, label: "Correo", value: clienteBusqueda.correo },
-                                        { icon: <PhoneIcon sx={{ color: colorIcono }} />, label: "Número de teléfono", value: clienteBusqueda.telefono },
-                                        { icon: <HomeIcon sx={{ color: colorIcono }} />, label: "Dirección", value: clienteBusqueda.direccion || "No especificada" }
+                                        { icon: &lt;PersonIcon sx={{ color: colorIcono }} />, label: "Nombre de usuario", value: clienteBusqueda.usuario },
+                                        { icon: &lt;EmailIcon sx={{ color: colorIcono }} />, label: "Correo", value: clienteBusqueda.correo },
+                                        { icon: &lt;PhoneIcon sx={{ color: colorIcono }} />, label: "Número de teléfono", value: clienteBusqueda.telefono },
+                                        { icon: &lt;HomeIcon sx={{ color: colorIcono }} />, label: "Dirección", value: clienteBusqueda.direccion || "No especificada" }
                                     ].map((item, index) => (
-                                        <motion.div key={index} initial="hidden" animate="visible" variants={itemVariants}>
-                                            <Typography variant="body1" sx={{ color: colorTexto, mb: 2, display: "flex", alignItems: "center" }}>
+                                        &lt;motion.div key={index} initial="hidden" animate="visible" variants={itemVariants}>
+                                            &lt;Typography variant="body1" sx={{ color: colorTexto, mb: 2, display: "flex", alignItems: "center" }}>
                                                 {item.icon}
-                                                <strong style={{ marginLeft: 5, marginRight: 5 }}>{item.label}:</strong> {item.value}
-                                            </Typography>
-                                        </motion.div>
+                                                &lt;strong style={{ marginLeft: 5, marginRight: 5 }}>{item.label}:&lt;/strong> {item.value}
+                                            &lt;/Typography>
+                                        &lt;/motion.div>
                                     ))}
-                                </Grid2>
-                            </Grid2>
-                            <Dialog
+                                &lt;/Grid2>
+                            &lt;/Grid2>
+                            &lt;Dialog
                                 open={abrirDialogoModificar}
                                 onClose={() => setAbrirDialogoModificar(false)}
                                 fullWidth={true}
                             >
-                                <DialogTitle sx={{ backgroundColor: colorFondo }}>
-                                    <Typography variant="h4" align="center" sx={{ color: colorTexto }}>
+                                &lt;DialogTitle sx={{ backgroundColor: colorFondo }}>
+                                    &lt;Typography variant="h4" align="center" sx={{ color: colorTexto }}>
                                         MODIFICAR CLIENTE {nombreCliente.toUpperCase()}
-                                    </Typography>
-                                </DialogTitle>
-                                <DialogContent sx={{ backgroundColor: colorFondo, display: "flex", flexDirection: "column", alignItems: "center" }}>
-                                    <Avatar
+                                    &lt;/Typography>
+                                &lt;/DialogTitle>
+                                &lt;DialogContent sx={{ backgroundColor: colorFondo, display: "flex", flexDirection: "column", alignItems: "center" }}>
+                                    &lt;Avatar
                                         src={clienteModificar ? `data:image/*;base64,${clienteModificar.imagen}` : null}
                                         sx={{ width: 140, height: 140 }}
                                     />
-                                    <Stack direction="row" spacing={2} sx={{ marginBottom: 5, marginTop: 2 }}>
-                                        <input
+                                    &lt;Stack direction="row" spacing={2} sx={{ marginBottom: 5, marginTop: 2 }}>
+                                        &lt;input
                                             accept="image/*"
                                             id="upload-image"
                                             type="file"
                                             style={{ display: "none" }}
                                             onChange={handleImageChange}
                                         />
-                                        <label htmlFor="upload-image">
-                                            <Button
+                                        &lt;label htmlFor="upload-image">
+                                            &lt;Button
                                                 variant="contained"
                                                 component="span"
-                                                startIcon={<CloudUploadIcon />}
+                                                startIcon={&lt;CloudUploadIcon />}
                                                 color="success"
                                             >
                                                 Subir Imagen
-                                            </Button>
-                                        </label>
-                                        <Button
+                                            &lt;/Button>
+                                        &lt;/label>
+                                        &lt;Button
                                             variant="contained"
-                                            startIcon={<FolderDeleteIcon />}
+                                            startIcon={&lt;FolderDeleteIcon />}
                                             color="error"
                                             onClick={handleImageRemove}
                                         >
                                             Borrar Imagen
-                                        </Button>
-                                    </Stack>
-                                    <TextField
+                                        &lt;/Button>
+                                    &lt;/Stack>
+                                    &lt;TextField
                                         id="idCliente"
                                         label="Id Cliente"
                                         value={clienteBusqueda.id_cliente}
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <AccountCircle sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;AccountCircle sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -558,7 +586,7 @@ function BuscarCliente() {
                                         aria-readonly
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="nombreUsuarioCliente"
                                         label="Nombre de usuario"
                                         value={clienteModificar ? clienteModificar.usuario : ""}
@@ -566,9 +594,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <AccountCircle sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;AccountCircle sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -579,7 +607,7 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="correoCliente"
                                         label="Correo electrónico"
                                         value={clienteModificar ? clienteModificar.correo : ""}
@@ -587,9 +615,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <ContactMailIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;ContactMailIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -600,7 +628,7 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="nombreCliente"
                                         label="Nombre"
                                         value={clienteModificar ? clienteModificar.nombre : ""}
@@ -608,9 +636,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <BadgeIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;BadgeIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -621,7 +649,7 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="apellidosCliente"
                                         label="Apellidos"
                                         value={clienteModificar ? clienteModificar.apellidos : ""}
@@ -629,9 +657,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <AssignmentIndIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;AssignmentIndIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -642,7 +670,7 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="telefonoCliente"
                                         label="Numero de telefono"
                                         value={clienteModificar ? clienteModificar.telefono : ""}
@@ -650,9 +678,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <ContactPhoneIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;ContactPhoneIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -663,7 +691,7 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <TextField
+                                    &lt;TextField
                                         id="direccionCliente"
                                         label="Dirección"
                                         value={clienteModificar ? clienteModificar.direccion : ""}
@@ -671,9 +699,9 @@ function BuscarCliente() {
                                         slotProps={{
                                             input: {
                                                 startAdornment: (
-                                                    <InputAdornment position="start">
-                                                        <FmdGoodIcon sx={{ color: colorIcono }} />
-                                                    </InputAdornment>
+                                                    &lt;InputAdornment position="start">
+                                                        &lt;FmdGoodIcon sx={{ color: colorIcono }} />
+                                                    &lt;/InputAdornment>
                                                 ),
                                                 sx: { color: colorTexto }
                                             },
@@ -684,10 +712,10 @@ function BuscarCliente() {
                                         fullWidth
                                         sx={estilosTextField}
                                     />
-                                    <InputLabel id="sexoClienteLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
+                                    &lt;InputLabel id="sexoClienteLabel" sx={{ color: colorFondo === "#FFFFFF" ? "#2e7d32" : "#FFFFFF", fontSize: "0.8em" }}>
                                         Sexo
-                                    </InputLabel>
-                                    <Select
+                                    &lt;/InputLabel>
+                                    &lt;Select
                                         labelId="sexoClienteLabel"
                                         id="sexoCliente"
                                         value={clienteModificar ? clienteModificar.sexo : ""}
@@ -710,7 +738,7 @@ function BuscarCliente() {
                                         }}
                                         sx={{
                                             color: colorTexto,
-                                            '& .MuiSelect-icon': {
+                                            '&amp; .MuiSelect-icon': {
                                                 color: `${colorTexto} !important`,
                                             },
                                             borderBottom: colorFondo === '#FFFFFF' ? '2px solid #24c55e' : '2px solid #ffffff',
@@ -720,15 +748,15 @@ function BuscarCliente() {
                                                 sx: {
                                                     backgroundColor: colorFondo,
                                                     color: colorTexto,
-                                                    '& .MuiMenuItem-root': {
+                                                    '&amp; .MuiMenuItem-root': {
                                                         color: colorTexto,
-                                                        '&:hover': {
+                                                        '&amp;:hover': {
                                                             backgroundColor: colorFondo === '#FFFFFF' ? '#f5f5f5' : '#333333',
                                                         },
-                                                        '&.Mui-selected': {
+                                                        '&amp;.Mui-selected': {
                                                             backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                         },
-                                                        '&.Mui-selected:hover': {
+                                                        '&amp;.Mui-selected:hover': {
                                                             backgroundColor: colorFondo === '#FFFFFF' ? '#e0e0e0' : '#444444',
                                                         },
                                                     },
@@ -736,35 +764,35 @@ function BuscarCliente() {
                                             },
                                         }}
                                     >
-                                        <MenuItem disabled value="">
-                                            <em style={{ color: colorTexto }}>Seleccione su género</em>
-                                        </MenuItem>
-                                        <MenuItem value="H">
-                                            <ListItemIcon>
-                                                <Male sx={{ color: "#006bf7" }} />
-                                            </ListItemIcon>
-                                            <ListItemText>Hombre</ListItemText>
-                                        </MenuItem>
-                                        <MenuItem value="M">
-                                            <ListItemIcon>
-                                                <Female sx={{ color: "#f70067" }} />
-                                            </ListItemIcon>
-                                            <ListItemText>Mujer</ListItemText>
-                                        </MenuItem>
-                                        <MenuItem value="N">
-                                            <ListItemIcon>
-                                                <TransgenderIcon sx={{ color: "#a500f7" }} />
-                                            </ListItemIcon>
-                                            <ListItemText>No especificar</ListItemText>
-                                        </MenuItem>
-                                    </Select>
-                                </DialogContent>
-                                <DialogActions sx={{ backgroundColor: colorFondo }}>
-                                    <Button onClick={() => setAbrirDialogoModificar(false)}>Cancelar</Button>
-                                    <Button onClick={() => handleProcesarModificacion()}>Modificar</Button>
-                                </DialogActions>
-                            </Dialog>
-                            <Dialog
+                                        &lt;MenuItem disabled value="">
+                                            &lt;em style={{ color: colorTexto }}>Seleccione su género&lt;/em>
+                                        &lt;/MenuItem>
+                                        &lt;MenuItem value="H">
+                                            &lt;ListItemIcon>
+                                                &lt;Male sx={{ color: "#006bf7" }} />
+                                            &lt;/ListItemIcon>
+                                            &lt;ListItemText>Hombre&lt;/ListItemText>
+                                        &lt;/MenuItem>
+                                        &lt;MenuItem value="M">
+                                            &lt;ListItemIcon>
+                                                &lt;Female sx={{ color: "#f70067" }} />
+                                            &lt;/ListItemIcon>
+                                            &lt;ListItemText>Mujer&lt;/ListItemText>
+                                        &lt;/MenuItem>
+                                        &lt;MenuItem value="N">
+                                            &lt;ListItemIcon>
+                                                &lt;TransgenderIcon sx={{ color: "#a500f7" }} />
+                                            &lt;/ListItemIcon>
+                                            &lt;ListItemText>No especificar&lt;/ListItemText>
+                                        &lt;/MenuItem>
+                                    &lt;/Select>
+                                &lt;/DialogContent>
+                                &lt;DialogActions sx={{ backgroundColor: colorFondo }}>
+                                    &lt;Button onClick={() => setAbrirDialogoModificar(false)}>Cancelar&lt;/Button>
+                                    &lt;Button onClick={() => handleProcesarModificacion()}>Modificar&lt;/Button>
+                                &lt;/DialogActions>
+                            &lt;/Dialog>
+                            &lt;Dialog
                                 open={abrirDialogoPedidos}
                                 onClose={() => setAbrirDialogoPedidos(false)}
                                 aria-labelledby="dialogoPedidosClienteTitulo"
@@ -772,10 +800,10 @@ function BuscarCliente() {
                                 fullWidth={true}
                                 maxWidth="xl"
                             >
-                                <DialogTitle sx={{ m: 0, p: 2, color: colorTexto, backgroundColor: colorFondo, fontSize: "1.5em" }} id="dialogoPedidosClienteTitulo">
+                                &lt;DialogTitle sx={{ m: 0, p: 2, color: colorTexto, backgroundColor: colorFondo, fontSize: "1.5em" }} id="dialogoPedidosClienteTitulo">
                                     {"Pedidos de " + clienteBusqueda.nombre + " " + clienteBusqueda.apellidos}
-                                </DialogTitle>
-                                <IconButton
+                                &lt;/DialogTitle>
+                                &lt;IconButton
                                     aria-label="close"
                                     onClick={() => setAbrirDialogoPedidos(false)}
                                     sx={(theme) => ({
@@ -785,72 +813,72 @@ function BuscarCliente() {
                                         color: theme.palette.grey[500],
                                     })}
                                 >
-                                    <CloseIcon sx={{ color: colorIcono }} />
-                                </IconButton>
-                                <DialogContent dividers sx={{ backgroundColor: colorFondo }}>
+                                    &lt;CloseIcon sx={{ color: colorIcono }} />
+                                &lt;/IconButton>
+                                &lt;DialogContent dividers sx={{ backgroundColor: colorFondo }}>
                                     {pedidosCliente === null ?
-                                        <Typography variant="h4" align="center" sx={{ color: "#fa0202", m: 5 }}>
+                                        &lt;Typography variant="h4" align="center" sx={{ color: "#fa0202", m: 5 }}>
                                             No hay pedidos asociados a este cliente
-                                        </Typography>
+                                        &lt;/Typography>
                                         :
-                                        <TableContainer sx={{
+                                        &lt;TableContainer sx={{
                                             backgroundColor: colorFondo,
                                             border: colorFondo === "#FFFFFF" ? "1px solid #24c55e" : "1px solid #FFFFFF",
                                             boxShadow: 3,
                                             borderRadius: 2,
                                         }}>
-                                            <Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
-                                                <TableBody>
-                                                    <TableRow>
-                                                        <TableCell component="th" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 50 }}>ID Pedido</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 90 }}>Producto</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Precio</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Unidades</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Estado</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 110 }}>Fecha de pedido</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 110 }}>Fecha de entrega</TableCell>
-                                                        <TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Cliente asociado</TableCell>
-                                                    </TableRow>
+                                            &lt;Table sx={{ minWidth: 500 }} aria-label="custom pagination table">
+                                                &lt;TableBody>
+                                                    &lt;TableRow>
+                                                        &lt;TableCell component="th" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 50 }}>ID Pedido&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 90 }}>Producto&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Precio&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Unidades&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Estado&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 110 }}>Fecha de pedido&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em", minWidth: 110 }}>Fecha de entrega&lt;/TableCell>
+                                                        &lt;TableCell align="center" className="easyOrders" sx={{ color: colorTexto, fontSize: "1.1em" }}>Cliente asociado&lt;/TableCell>
+                                                    &lt;/TableRow>
                                                     {(rowsPerPage > 0
                                                         ? pedidosCliente.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                                         : pedidosCliente
                                                     ).map((pedido) => (
-                                                        <TableRow key={pedido.id_pedido}>
-                                                            <TableCell component="th" sx={{ color: colorTexto, minWidth: 50, fontWeight: "bold" }}>
+                                                        &lt;TableRow key={pedido.id_pedido}>
+                                                            &lt;TableCell component="th" sx={{ color: colorTexto, minWidth: 50, fontWeight: "bold" }}>
                                                                 {pedido.id_pedido}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto }}>
                                                                 {pedido.producto}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto, minWidth: 90 }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto, minWidth: 90 }}>
                                                                 {pedido.precio} €
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto }}>
                                                                 {pedido.unidades}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto }}>
                                                                 {pedido.estado}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto, minWidth: 110 }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto, minWidth: 110 }}>
                                                                 {pedido.fecha_pedido}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto, minWidth: 110 }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto, minWidth: 110 }}>
                                                                 {pedido.fecha_entrega ? pedido.fecha_entrega : "Sin entrega prevista"}
-                                                            </TableCell>
-                                                            <TableCell align="center" sx={{ color: colorTexto }}>
+                                                            &lt;/TableCell>
+                                                            &lt;TableCell align="center" sx={{ color: colorTexto }}>
                                                                 {clienteBusqueda.nombre}
-                                                            </TableCell>
-                                                        </TableRow>
+                                                            &lt;/TableCell>
+                                                        &lt;/TableRow>
                                                     ))}
-                                                    {emptyRows > 0 && (
-                                                        <TableRow style={{ height: 53 * emptyRows }}>
-                                                            <TableCell colSpan={8} />
-                                                        </TableRow>
+                                                    {emptyRows > 0 &amp;&amp; (
+                                                        &lt;TableRow style={{ height: 53 * emptyRows }}>
+                                                            &lt;TableCell colSpan={8} />
+                                                        &lt;/TableRow>
                                                     )}
-                                                </TableBody>
-                                                <TableFooter>
-                                                    <TableRow>
-                                                        <TablePagination
+                                                &lt;/TableBody>
+                                                &lt;TableFooter>
+                                                    &lt;TableRow>
+                                                        &lt;TablePagination
                                                             rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                                                             colSpan={9}
                                                             count={pedidosCliente.length}
@@ -858,7 +886,7 @@ function BuscarCliente() {
                                                             page={page}
                                                             sx={{
                                                                 color: colorTexto,
-                                                                '& .MuiTablePagination-selectLabel, & .MuiTablePagination-displayedRows': {
+                                                                '&amp; .MuiTablePagination-selectLabel, &amp; .MuiTablePagination-displayedRows': {
                                                                     marginTop: '1rem',
                                                                 }
                                                             }}
@@ -870,76 +898,98 @@ function BuscarCliente() {
                                                                 return `${from}-${to} de ${count !== -1 ? count : `más de ${to}`}`;
                                                             }}
                                                         />
-                                                    </TableRow>
-                                                </TableFooter>
-                                            </Table>
-                                        </TableContainer>
+                                                    &lt;/TableRow>
+                                                &lt;/TableFooter>
+                                            &lt;/Table>
+                                        &lt;/TableContainer>
                                     }
-                                </DialogContent>
-                            </Dialog>
-                            <Dialog
+                                &lt;/DialogContent>
+                            &lt;/Dialog>
+                            &lt;Dialog
                                 open={abrirDialogoBorrar}
                                 onClose={() => setAbrirDialogoBorrar(false)}
                                 aria-labelledby="dialogoBorrarClienteTitulo"
                                 aria-describedby="dialogoBorrarClienteDescripcion"
                             >
-                                <DialogTitle id="dialogoBorrarClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
+                                &lt;DialogTitle id="dialogoBorrarClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
                                     {"Eliminar cliente"}
-                                </DialogTitle>
-                                <DialogContent sx={{ backgroundColor: colorFondo }}>
-                                    <DialogContentText id="dialogoBorrarClienteDescripcion" sx={{ color: colorTexto }}>
+                                &lt;/DialogTitle>
+                                &lt;DialogContent sx={{ backgroundColor: colorFondo }}>
+                                    &lt;DialogContentText id="dialogoBorrarClienteDescripcion" sx={{ color: colorTexto }}>
                                         {`Estas seguro de que quieres eliminar al cliente "${clienteBusqueda.nombre} ${clienteBusqueda.apellidos} y todos sus pedidos asociados"?`}
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions sx={{ backgroundColor: colorFondo }}>
-                                    <Button onClick={() => setAbrirDialogoBorrar(false)} autoFocus>Cancelar</Button>
-                                    <Button onClick={() => handleProcesarEliminacion()} color='error'>Aceptar</Button>
-                                </DialogActions>
-                            </Dialog>
-                            <Dialog
+                                    &lt;/DialogContentText>
+                                &lt;/DialogContent>
+                                &lt;DialogActions sx={{ backgroundColor: colorFondo }}>
+                                    &lt;Button onClick={() => setAbrirDialogoBorrar(false)} autoFocus>Cancelar&lt;/Button>
+                                    &lt;Button onClick={() => handleProcesarEliminacion()} color='error'>Aceptar&lt;/Button>
+                                &lt;/DialogActions>
+                            &lt;/Dialog>
+                            &lt;Dialog
                                 open={abrirDialogoInformacion}
                                 onClose={() => setAbrirDialogoInformacion(false)}
                                 aria-labelledby="dialogoInformacionClienteTitulo"
                                 aria-describedby="dialogoInformacionClienteDescripcion"
                             >
-                                <DialogTitle id="dialogoInformacionClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
+                                &lt;DialogTitle id="dialogoInformacionClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
                                     {"INFORMACION"}
-                                </DialogTitle>
-                                <DialogContent sx={{ backgroundColor: colorFondo }}>
-                                    <DialogContentText id="dialogoInformacionClienteDescripcion" sx={{ color: colorTexto }}>
+                                &lt;/DialogTitle>
+                                &lt;DialogContent sx={{ backgroundColor: colorFondo }}>
+                                    &lt;DialogContentText id="dialogoInformacionClienteDescripcion" sx={{ color: colorTexto }}>
                                         {mensajeDialogoInformacion}
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions sx={{ color: colorTexto, backgroundColor: colorFondo }}>
-                                    <Button onClick={() => setAbrirDialogoInformacion(false)} autoFocus>Aceptar</Button>
-                                </DialogActions>
-                            </Dialog>
-                        </>
+                                    &lt;/DialogContentText>
+                                &lt;/DialogContent>
+                                &lt;DialogActions sx={{ color: colorTexto, backgroundColor: colorFondo }}>
+                                    &lt;Button onClick={() => setAbrirDialogoInformacion(false)} autoFocus>Aceptar&lt;/Button>
+                                &lt;/DialogActions>
+                            &lt;/Dialog>
+                        &lt;/>
                     :
-                    <>
+                    &lt;>
                         {/* Cuando no se haya buscado nada todavia entonces no se mostrará nada en la interfaz */}
-                    </>
+                    &lt;/>
             }
-            <Dialog
+            &lt;Dialog
                 open={openDialogoInformacion}
                 onClose={() => setOpenDialogoInformacion(false)}
                 aria-labelledby="dialogoInformacionClienteTitulo"
                 aria-describedby="dialogoInformacionClienteDescripcion"
             >
-                <DialogTitle id="dialogoInformacionClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
+                &lt;DialogTitle id="dialogoInformacionClienteTitulo" sx={{ color: colorTexto, backgroundColor: colorFondo }}>
                     {"INFORMACION DE LA BUSQUEDA"}
-                </DialogTitle>
-                <DialogContent sx={{ backgroundColor: colorFondo }}>
-                    <DialogContentText id="dialogoInformacionClienteDescripcion" sx={{ color: colorTexto }}>
+                &lt;/DialogTitle>
+                &lt;DialogContent sx={{ backgroundColor: colorFondo }}>
+                    &lt;DialogContentText id="dialogoInformacionClienteDescripcion" sx={{ color: colorTexto }}>
                         {mensajeDialogoInformacion}
-                    </DialogContentText>
-                </DialogContent>
-                <DialogActions sx={{ color: colorTexto, backgroundColor: colorFondo }}>
-                    <Button onClick={() => setOpenDialogoInformacion(false)} autoFocus>Aceptar</Button>
-                </DialogActions>
-            </Dialog>
-        </Box>
+                    &lt;/DialogContentText>
+                &lt;/DialogContent>
+                &lt;DialogActions sx={{ color: colorTexto, backgroundColor: colorFondo }}>
+                    &lt;Button onClick={() => setOpenDialogoInformacion(false)} autoFocus>Aceptar&lt;/Button>
+                &lt;/DialogActions>
+            &lt;/Dialog>
+        &lt;/Box>
     );
 }
 
-export default BuscarCliente;
+export default BuscarCliente;</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#BuscarCliente">BuscarCliente</a></li><li><a href="global.html#FormularioAltaCliente">FormularioAltaCliente</a></li><li><a href="global.html#FormularioAltaPedido">FormularioAltaPedido</a></li><li><a href="global.html#ListaClientes">ListaClientes</a></li><li><a href="global.html#ListaPedidos">ListaPedidos</a></li><li><a href="global.html#MenuApp">MenuApp</a></li><li><a href="global.html#RutaNotFound">RutaNotFound</a></li><li><a href="global.html#TemaContext">TemaContext</a></li><li><a href="global.html#TemaProvider">TemaProvider</a></li><li><a href="global.html#apiUrl">apiUrl</a></li><li><a href="global.html#appTitle">appTitle</a></li><li><a href="global.html#generatePDF">generatePDF</a></li><li><a href="global.html#router">router</a></li><li><a href="global.html#useTema">useTema</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Wed Feb 26 2025 10:27:34 GMT+0100 (hora estándar de Europa central)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

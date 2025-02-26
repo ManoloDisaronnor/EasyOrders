@@ -1,9 +1,15 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-// Crear el contexto
+/**
+ * Contexto para el tema de la aplicación.
+ */
 const TemaContext = createContext();
 
-// Proveer el contexto en un componente de alto nivel
+/**
+ * Proveedor del contexto del tema.
+ * @param {Object} props - Las propiedades del componente.
+ * @returns {JSX.Element} El proveedor del contexto del tema.
+ */
 export const TemaProvider = ({ children }) => {
     // Cargar la preferencia de tema desde localStorage o usar claro por defecto
     const [temaOscuro, setTemaOscuro] = useState(() => {
@@ -14,6 +20,9 @@ export const TemaProvider = ({ children }) => {
     const [colorTexto, setColorTexto] = useState(temaOscuro ? '#FFFFFF' : '#000000');
     const [colorIcono, setColorIcono] = useState(temaOscuro ? '#FFFFFF' : '#24c55e');
 
+    /**
+     * Alterna el tema entre claro y oscuro.
+     */
     const toggleTema = () => {
         setTemaOscuro(prevTema => {
             const nuevoTema = !prevTema;
@@ -36,7 +45,10 @@ export const TemaProvider = ({ children }) => {
     );
 };
 
-// Hook para acceder al contexto
+/**
+ * Hook para acceder al contexto del tema.
+ * @returns {Object} El contexto del tema.
+ */
 export const useTema = () => {
     return useContext(TemaContext);
 };

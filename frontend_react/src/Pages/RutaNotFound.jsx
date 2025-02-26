@@ -6,10 +6,14 @@ import ReplyIcon from '@mui/icons-material/Reply';
 import { useNavigate } from "react-router";
 import { useTema } from '../Componentes/TemaProvider';
 
+/**
+ * Component to display a 404 Not Found page.
+ * @returns {JSX.Element} The rendered component.
+ */
 function RutaNotFound() {
-    const { colorFondo, colorTexto } = useTema();
+    const { colorFondo, colorTexto } = useTema(); // Custom theme colors
+    const navigate = useNavigate(); // Navigation hook
 
-    const navigate = useNavigate();
     return (
         <Box sx={{ p: 5 }}>
             <Grid2 container direction="row" alignItems="center" justifyContent="center">
